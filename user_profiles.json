@@ -1,0 +1,2081 @@
+[
+  {
+    "user_id": "U01",
+    "home_airport": "CPT",
+    "home_city": "Cape Town",
+    "preferred_airlines": [
+      "AA"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "low",
+    "direct_preference": "strong",
+    "max_layover_minutes": 120,
+    "date_flexibility_days": 1,
+    "trip_purpose": "business",
+    "preferred_departure": "morning",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round, avoids holidays",
+    "weights": {
+      "cost_weight": 0.125,
+      "convenience_weight": 0.625,
+      "time_weight": 0.25
+    },
+    "evidence_fragments": [
+      {
+        "text": "always book business, hate connections",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "redeyes kill my mornings, avoid if possible",
+        "avoids_redeye": true
+      },
+      {
+        "text": "aisle seat, front of cabin"
+      }
+    ],
+    "preference_summary": "business traveler based in Cape Town (CPT). Cabin preference: Business. Price sensitivity: low. Direct-flight preference: strong (tolerates up to 120 min layovers). Date flexibility: 1 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: carry-on only. Seasonal pattern: year-round, avoids holidays. Notable history: always book business, hate connections; redeyes kill my mornings, avoid if possible; aisle seat, front of cabin."
+  },
+  {
+    "user_id": "U02",
+    "home_airport": "MEX",
+    "home_city": "Mexico City",
+    "preferred_airlines": [
+      "SQ",
+      "BA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 420,
+    "date_flexibility_days": 7,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible, chases cheap fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333,
+      "revealed_usd_per_layover_hour": 17.14
+    },
+    "evidence_fragments": [
+      {
+        "text": "ok with redeye if it's cheaper",
+        "stance_cost": "price_sensitive",
+        "avoids_redeye": true
+      },
+      {
+        "text": "cheapest fare wins, dont care about stops",
+        "stance_cost": "price_sensitive",
+        "stance_directness": "connections_ok"
+      },
+      {
+        "text": "no loyalty, whatever's cheapest",
+        "stance_cost": "price_sensitive",
+        "loyalty_signal": true
+      },
+      {
+        "text": "booked SQ last min for a steal",
+        "airlines_mentioned": [
+          "SQ"
+        ],
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "took a 7hr layover in SIN to save $120",
+        "elasticity_usd_per_hour": 17.14,
+        "mentions_hours": 7.0,
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Mexico City (MEX). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 420 min layovers). Date flexibility: 7 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: flexible, chases cheap fares. Notable history: ok with redeye if it's cheaper; cheapest fare wins, dont care about stops; no loyalty, whatever's cheapest; booked SQ last min for a steal; took a 7hr layover in SIN to save $120."
+  },
+  {
+    "user_id": "U03",
+    "home_airport": "AMS",
+    "home_city": "Amsterdam",
+    "preferred_airlines": [
+      "KL",
+      "JL",
+      "CX"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 150,
+    "date_flexibility_days": 5,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked + stroller",
+    "seasonal_pattern": "school holidays only (jul-aug, dec)",
+    "weights": {
+      "cost_weight": 0.286,
+      "convenience_weight": 0.571,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "need 2 checked bags + stroller",
+        "family_signal": true
+      },
+      {
+        "text": "school breaks only so dates are fixed-ish"
+      },
+      {
+        "text": "traveling w/ 2 kids, direct is worth paying for",
+        "stance_directness": "prefers_direct",
+        "family_signal": true
+      },
+      {
+        "text": "prefer JL, kids fly free promo once",
+        "airlines_mentioned": [
+          "JL"
+        ],
+        "family_signal": true
+      },
+      {
+        "text": "morning departures, kids melt down at night",
+        "avoids_redeye": true,
+        "family_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Amsterdam (AMS). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 150 min layovers). Date flexibility: 5 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 2 checked + stroller. Seasonal pattern: school holidays only (jul-aug, dec). Notable history: need 2 checked bags + stroller; school breaks only so dates are fixed-ish; traveling w/ 2 kids, direct is worth paying for; prefer JL, kids fly free promo once; morning departures, kids melt down at night."
+  },
+  {
+    "user_id": "U04",
+    "home_airport": "MEL",
+    "home_city": "Melbourne",
+    "preferred_airlines": [
+      "JL"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 300,
+    "date_flexibility_days": 21,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "shoulder season to dodge crowds/prices",
+    "weights": {
+      "cost_weight": 0.571,
+      "convenience_weight": 0.286,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "multi-city all the time, HKG-ICN-somewhere"
+      },
+      {
+        "text": "carry-on only, live out of a backpack"
+      },
+      {
+        "text": "value matters but i'll pay to skip a 10hr layover",
+        "mentions_hours": 10.0,
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Melbourne (MEL). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: multi-city all the time, HKG-ICN-somewhere; carry-on only, live out of a backpack; value matters but i'll pay to skip a 10hr layover."
+  },
+  {
+    "user_id": "U05",
+    "home_airport": "LIS",
+    "home_city": "Lisbon",
+    "preferred_airlines": [
+      "LH"
+    ],
+    "preferred_cabin": "First",
+    "price_sensitivity": "none",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 4,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "3 checked",
+    "seasonal_pattern": "peak season, comfort over cost",
+    "weights": {
+      "cost_weight": 0.0,
+      "convenience_weight": 0.667,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "happy in peak season, money's not the constraint",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "first or business only, comfort over cost",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "direct whenever it exists",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "spa lounge, chauffeur transfer, the works",
+        "stance_cost": "price_insensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Lisbon (LIS). Cabin preference: First. Price sensitivity: none. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 4 days. Multi-city tendency: medium. Preferred departure time: any. Baggage needs: 3 checked. Seasonal pattern: peak season, comfort over cost. Notable history: happy in peak season, money's not the constraint; first or business only, comfort over cost; direct whenever it exists; spa lounge, chauffeur transfer, the works."
+  },
+  {
+    "user_id": "U06",
+    "home_airport": "MAA",
+    "home_city": "Chennai",
+    "preferred_airlines": [
+      "SQ",
+      "QR"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 480,
+    "date_flexibility_days": 30,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "summer break, rock-bottom fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "huge date flexibility, whole summer free"
+      },
+      {
+        "text": "multi-city euro trip planned"
+      },
+      {
+        "text": "2 stops fine, even overnight layovers",
+        "mentions_stop_count": 2,
+        "stance_directness": "connections_ok"
+      },
+      {
+        "text": "no bags beyond a backpack"
+      },
+      {
+        "text": "broke student, absolute cheapest only",
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Chennai (MAA). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: huge date flexibility, whole summer free; multi-city euro trip planned; 2 stops fine, even overnight layovers; no bags beyond a backpack; broke student, absolute cheapest only."
+  },
+  {
+    "user_id": "U07",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "AA",
+      "KE"
+    ],
+    "preferred_cabin": "Premium Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 240,
+    "date_flexibility_days": 14,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked",
+    "seasonal_pattern": "avoids peak, prefers shoulder",
+    "weights": {
+      "cost_weight": 0.333,
+      "convenience_weight": 0.333,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "avoid holiday crowds and prices"
+      },
+      {
+        "text": "like KE but open to alternatives",
+        "airlines_mentioned": [
+          "KE"
+        ]
+      },
+      {
+        "text": "retired so dates are flexible"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Delhi (DEL). Cabin preference: Premium Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 240 min layovers). Date flexibility: 14 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: 2 checked. Seasonal pattern: avoids peak, prefers shoulder. Notable history: avoid holiday crowds and prices; like KE but open to alternatives; retired so dates are flexible."
+  },
+  {
+    "user_id": "U08",
+    "home_airport": "GIG",
+    "home_city": "Rio de Janeiro",
+    "preferred_airlines": [
+      "AA",
+      "BA",
+      "NH"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 100,
+    "date_flexibility_days": 2,
+    "trip_purpose": "business",
+    "preferred_departure": "evening",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round weekly travel",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "multi-city client hops, DXB is my connection base"
+      },
+      {
+        "text": "evening departures after meetings"
+      },
+      {
+        "text": "AAdvantage status, stick to alliance",
+        "loyalty_signal": true
+      }
+    ],
+    "preference_summary": "business traveler based in Rio de Janeiro (GIG). Cabin preference: Business. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 100 min layovers). Date flexibility: 2 days. Multi-city tendency: high. Preferred departure time: evening. Baggage needs: carry-on only. Seasonal pattern: year-round weekly travel. Notable history: multi-city client hops, DXB is my connection base; evening departures after meetings; AAdvantage status, stick to alliance."
+  },
+  {
+    "user_id": "U09",
+    "home_airport": "SYD",
+    "home_city": "Sydney",
+    "preferred_airlines": [
+      "NH"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 200,
+    "date_flexibility_days": 3,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "event-driven, fixed dates",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "flew NH to SFO for a festival last yr",
+        "airlines_mentioned": [
+          "NH"
+        ]
+      },
+      {
+        "text": "moderate budget, will pay a bit for convenience",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "dates locked to a conference/wedding"
+      },
+      {
+        "text": "whatever airline fits the schedule"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Sydney (SYD). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 200 min layovers). Date flexibility: 3 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: event-driven, fixed dates. Notable history: flew NH to SFO for a festival last yr; moderate budget, will pay a bit for convenience; dates locked to a conference/wedding; whatever airline fits the schedule."
+  },
+  {
+    "user_id": "U10",
+    "home_airport": "FCO",
+    "home_city": "Rome",
+    "preferred_airlines": [
+      "QF"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 10,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible but nervous about tight connections",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "no loyalty yet",
+        "loyalty_signal": true
+      },
+      {
+        "text": "scared of missing connections, short layovers stress me"
+      },
+      {
+        "text": "new to flying, want it simple and direct"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Rome (FCO). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 10 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 1 checked. Seasonal pattern: flexible but nervous about tight connections. Notable history: no loyalty yet; scared of missing connections, short layovers stress me; new to flying, want it simple and direct."
+  },
+  {
+    "user_id": "U11",
+    "home_airport": "SVO",
+    "home_city": "Moscow",
+    "preferred_airlines": [
+      "TK"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "low",
+    "direct_preference": "strong",
+    "max_layover_minutes": 120,
+    "date_flexibility_days": 1,
+    "trip_purpose": "business",
+    "preferred_departure": "morning",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round, avoids holidays",
+    "weights": {
+      "cost_weight": 0.125,
+      "convenience_weight": 0.625,
+      "time_weight": 0.25
+    },
+    "evidence_fragments": [
+      {
+        "text": "always book business, hate connections",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "lounge access is non-negotiable"
+      },
+      {
+        "text": "need wifi onboard for work"
+      }
+    ],
+    "preference_summary": "business traveler based in Moscow (SVO). Cabin preference: Business. Price sensitivity: low. Direct-flight preference: strong (tolerates up to 120 min layovers). Date flexibility: 1 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: carry-on only. Seasonal pattern: year-round, avoids holidays. Notable history: always book business, hate connections; lounge access is non-negotiable; need wifi onboard for work."
+  },
+  {
+    "user_id": "U12",
+    "home_airport": "AMS",
+    "home_city": "Amsterdam",
+    "preferred_airlines": [
+      "DL",
+      "KE"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 420,
+    "date_flexibility_days": 7,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible, chases cheap fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333,
+      "revealed_usd_per_layover_hour": 17.14
+    },
+    "evidence_fragments": [
+      {
+        "text": "cheapest fare wins, dont care about stops",
+        "stance_cost": "price_sensitive",
+        "stance_directness": "connections_ok"
+      },
+      {
+        "text": "took a 7hr layover in FRA to save $120",
+        "elasticity_usd_per_hour": 17.14,
+        "mentions_hours": 7.0,
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "booked DL last min for a steal",
+        "airlines_mentioned": [
+          "DL"
+        ],
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "ok with redeye if it's cheaper",
+        "stance_cost": "price_sensitive",
+        "avoids_redeye": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Amsterdam (AMS). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 420 min layovers). Date flexibility: 7 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: flexible, chases cheap fares. Notable history: cheapest fare wins, dont care about stops; took a 7hr layover in FRA to save $120; booked DL last min for a steal; ok with redeye if it's cheaper."
+  },
+  {
+    "user_id": "U13",
+    "home_airport": "SVO",
+    "home_city": "Moscow",
+    "preferred_airlines": [
+      "TG"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 150,
+    "date_flexibility_days": 5,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked + stroller",
+    "seasonal_pattern": "school holidays only (jul-aug, dec)",
+    "weights": {
+      "cost_weight": 0.286,
+      "convenience_weight": 0.571,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "school breaks only so dates are fixed-ish"
+      },
+      {
+        "text": "morning departures, kids melt down at night",
+        "avoids_redeye": true,
+        "family_signal": true
+      },
+      {
+        "text": "traveling w/ 2 kids, direct is worth paying for",
+        "stance_directness": "prefers_direct",
+        "family_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Moscow (SVO). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 150 min layovers). Date flexibility: 5 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 2 checked + stroller. Seasonal pattern: school holidays only (jul-aug, dec). Notable history: school breaks only so dates are fixed-ish; morning departures, kids melt down at night; traveling w/ 2 kids, direct is worth paying for."
+  },
+  {
+    "user_id": "U14",
+    "home_airport": "ICN",
+    "home_city": "Seoul",
+    "preferred_airlines": [
+      "AA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 300,
+    "date_flexibility_days": 21,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "shoulder season to dodge crowds/prices",
+    "weights": {
+      "cost_weight": 0.571,
+      "convenience_weight": 0.286,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "super flexible dates, weeks of window"
+      },
+      {
+        "text": "value matters but i'll pay to skip a 10hr layover",
+        "mentions_hours": 10.0,
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "did sin-bkk-bali-syd last quarter"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Seoul (ICN). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: super flexible dates, weeks of window; value matters but i'll pay to skip a 10hr layover; did sin-bkk-bali-syd last quarter."
+  },
+  {
+    "user_id": "U15",
+    "home_airport": "GIG",
+    "home_city": "Rio de Janeiro",
+    "preferred_airlines": [
+      "TK",
+      "AI"
+    ],
+    "preferred_cabin": "First",
+    "price_sensitivity": "none",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 4,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "3 checked",
+    "seasonal_pattern": "peak season, comfort over cost",
+    "weights": {
+      "cost_weight": 0.0,
+      "convenience_weight": 0.621,
+      "time_weight": 0.379
+    },
+    "evidence_fragments": [
+      {
+        "text": "first or business only, comfort over cost",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "loyal to TK, top-tier status",
+        "airlines_mentioned": [
+          "TK"
+        ],
+        "loyalty_signal": true
+      },
+      {
+        "text": "happy in peak season, money's not the constraint",
+        "stance_cost": "price_insensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Rio de Janeiro (GIG). Cabin preference: First. Price sensitivity: none. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 4 days. Multi-city tendency: medium. Preferred departure time: any. Baggage needs: 3 checked. Seasonal pattern: peak season, comfort over cost. Notable history: first or business only, comfort over cost; loyal to TK, top-tier status; happy in peak season, money's not the constraint."
+  },
+  {
+    "user_id": "U16",
+    "home_airport": "GIG",
+    "home_city": "Rio de Janeiro",
+    "preferred_airlines": [
+      "SQ",
+      "CX",
+      "AA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 480,
+    "date_flexibility_days": 30,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "summer break, rock-bottom fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "2 stops fine, even overnight layovers",
+        "mentions_stop_count": 2,
+        "stance_directness": "connections_ok"
+      },
+      {
+        "text": "multi-city euro trip planned"
+      },
+      {
+        "text": "broke student, absolute cheapest only",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "no bags beyond a backpack"
+      },
+      {
+        "text": "huge date flexibility, whole summer free"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Rio de Janeiro (GIG). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: 2 stops fine, even overnight layovers; multi-city euro trip planned; broke student, absolute cheapest only; no bags beyond a backpack; huge date flexibility, whole summer free."
+  },
+  {
+    "user_id": "U17",
+    "home_airport": "FRA",
+    "home_city": "Frankfurt",
+    "preferred_airlines": [
+      "NH"
+    ],
+    "preferred_cabin": "Premium Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 240,
+    "date_flexibility_days": 14,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked",
+    "seasonal_pattern": "avoids peak, prefers shoulder",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "one stop ok if it saves a few hundred",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "avoid holiday crowds and prices"
+      },
+      {
+        "text": "retired so dates are flexible"
+      },
+      {
+        "text": "like NH but open to alternatives",
+        "airlines_mentioned": [
+          "NH"
+        ]
+      },
+      {
+        "text": "premium economy is the sweet spot for long hauls"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Frankfurt (FRA). Cabin preference: Premium Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 240 min layovers). Date flexibility: 14 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: 2 checked. Seasonal pattern: avoids peak, prefers shoulder. Notable history: one stop ok if it saves a few hundred; avoid holiday crowds and prices; retired so dates are flexible; like NH but open to alternatives; premium economy is the sweet spot for long hauls."
+  },
+  {
+    "user_id": "U18",
+    "home_airport": "LHR",
+    "home_city": "London",
+    "preferred_airlines": [
+      "QF",
+      "KL"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 100,
+    "date_flexibility_days": 2,
+    "trip_purpose": "business",
+    "preferred_departure": "evening",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round weekly travel",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "evening departures after meetings"
+      },
+      {
+        "text": "Frequent Flyer status, stick to alliance",
+        "loyalty_signal": true
+      },
+      {
+        "text": "multi-city client hops, AMS is my connection base"
+      }
+    ],
+    "preference_summary": "business traveler based in London (LHR). Cabin preference: Business. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 100 min layovers). Date flexibility: 2 days. Multi-city tendency: high. Preferred departure time: evening. Baggage needs: carry-on only. Seasonal pattern: year-round weekly travel. Notable history: evening departures after meetings; Frequent Flyer status, stick to alliance; multi-city client hops, AMS is my connection base."
+  },
+  {
+    "user_id": "U19",
+    "home_airport": "PVG",
+    "home_city": "Shanghai",
+    "preferred_airlines": [
+      "TG",
+      "NH"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 200,
+    "date_flexibility_days": 3,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "event-driven, fixed dates",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "flew TG to SIN for a festival last yr",
+        "airlines_mentioned": [
+          "TG"
+        ]
+      },
+      {
+        "text": "dates locked to a conference/wedding"
+      },
+      {
+        "text": "one stop fine, not two"
+      },
+      {
+        "text": "whatever airline fits the schedule"
+      },
+      {
+        "text": "moderate budget, will pay a bit for convenience",
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Shanghai (PVG). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 200 min layovers). Date flexibility: 3 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: event-driven, fixed dates. Notable history: flew TG to SIN for a festival last yr; dates locked to a conference/wedding; one stop fine, not two; whatever airline fits the schedule; moderate budget, will pay a bit for convenience."
+  },
+  {
+    "user_id": "U20",
+    "home_airport": "IST",
+    "home_city": "Istanbul",
+    "preferred_airlines": [
+      "QR",
+      "BA",
+      "QF"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 10,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible but nervous about tight connections",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "new to flying, want it simple and direct"
+      },
+      {
+        "text": "no loyalty yet",
+        "loyalty_signal": true
+      },
+      {
+        "text": "morning flights feel safer"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Istanbul (IST). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 10 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 1 checked. Seasonal pattern: flexible but nervous about tight connections. Notable history: new to flying, want it simple and direct; no loyalty yet; morning flights feel safer."
+  },
+  {
+    "user_id": "U21",
+    "home_airport": "PEK",
+    "home_city": "Beijing",
+    "preferred_airlines": [
+      "AF"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "low",
+    "direct_preference": "strong",
+    "max_layover_minutes": 120,
+    "date_flexibility_days": 1,
+    "trip_purpose": "business",
+    "preferred_departure": "morning",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round, avoids holidays",
+    "weights": {
+      "cost_weight": 0.129,
+      "convenience_weight": 0.581,
+      "time_weight": 0.29
+    },
+    "evidence_fragments": [
+      {
+        "text": "need wifi onboard for work"
+      },
+      {
+        "text": "redeyes kill my mornings, avoid if possible",
+        "avoids_redeye": true
+      },
+      {
+        "text": "lounge access is non-negotiable"
+      },
+      {
+        "text": "gold w/ none, ~80 segments/yr"
+      },
+      {
+        "text": "aisle seat, front of cabin"
+      }
+    ],
+    "preference_summary": "business traveler based in Beijing (PEK). Cabin preference: Business. Price sensitivity: low. Direct-flight preference: strong (tolerates up to 120 min layovers). Date flexibility: 1 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: carry-on only. Seasonal pattern: year-round, avoids holidays. Notable history: need wifi onboard for work; redeyes kill my mornings, avoid if possible; lounge access is non-negotiable; gold w/ none, ~80 segments/yr; aisle seat, front of cabin."
+  },
+  {
+    "user_id": "U22",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "SQ",
+      "QF"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 420,
+    "date_flexibility_days": 7,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible, chases cheap fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333,
+      "revealed_usd_per_layover_hour": 17.14
+    },
+    "evidence_fragments": [
+      {
+        "text": "cheapest fare wins, dont care about stops",
+        "stance_cost": "price_sensitive",
+        "stance_directness": "connections_ok"
+      },
+      {
+        "text": "took a 7hr layover in AMS to save $120",
+        "elasticity_usd_per_hour": 17.14,
+        "mentions_hours": 7.0,
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "no loyalty, whatever's cheapest",
+        "stance_cost": "price_sensitive",
+        "loyalty_signal": true
+      },
+      {
+        "text": "ok with redeye if it's cheaper",
+        "stance_cost": "price_sensitive",
+        "avoids_redeye": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Delhi (DEL). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 420 min layovers). Date flexibility: 7 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: flexible, chases cheap fares. Notable history: cheapest fare wins, dont care about stops; took a 7hr layover in AMS to save $120; no loyalty, whatever's cheapest; ok with redeye if it's cheaper."
+  },
+  {
+    "user_id": "U23",
+    "home_airport": "LAX",
+    "home_city": "Los Angeles",
+    "preferred_airlines": [
+      "BA",
+      "JL",
+      "UA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 150,
+    "date_flexibility_days": 5,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked + stroller",
+    "seasonal_pattern": "school holidays only (jul-aug, dec)",
+    "weights": {
+      "cost_weight": 0.286,
+      "convenience_weight": 0.571,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "school breaks only so dates are fixed-ish"
+      },
+      {
+        "text": "prefer UA, kids fly free promo once",
+        "airlines_mentioned": [
+          "UA"
+        ],
+        "family_signal": true
+      },
+      {
+        "text": "traveling w/ 2 kids, direct is worth paying for",
+        "stance_directness": "prefers_direct",
+        "family_signal": true
+      },
+      {
+        "text": "need 2 checked bags + stroller",
+        "family_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Los Angeles (LAX). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 150 min layovers). Date flexibility: 5 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 2 checked + stroller. Seasonal pattern: school holidays only (jul-aug, dec). Notable history: school breaks only so dates are fixed-ish; prefer UA, kids fly free promo once; traveling w/ 2 kids, direct is worth paying for; need 2 checked bags + stroller."
+  },
+  {
+    "user_id": "U24",
+    "home_airport": "LHR",
+    "home_city": "London",
+    "preferred_airlines": [
+      "LH",
+      "TG"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 300,
+    "date_flexibility_days": 21,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "shoulder season to dodge crowds/prices",
+    "weights": {
+      "cost_weight": 0.571,
+      "convenience_weight": 0.286,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "did sin-bkk-bali-syd last quarter"
+      },
+      {
+        "text": "multi-city all the time, CDG-LAX-somewhere"
+      },
+      {
+        "text": "value matters but i'll pay to skip a 10hr layover",
+        "mentions_hours": 10.0,
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "carry-on only, live out of a backpack"
+      }
+    ],
+    "preference_summary": "mixed traveler based in London (LHR). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: did sin-bkk-bali-syd last quarter; multi-city all the time, CDG-LAX-somewhere; value matters but i'll pay to skip a 10hr layover; carry-on only, live out of a backpack."
+  },
+  {
+    "user_id": "U25",
+    "home_airport": "FRA",
+    "home_city": "Frankfurt",
+    "preferred_airlines": [
+      "AF",
+      "AA"
+    ],
+    "preferred_cabin": "First",
+    "price_sensitivity": "none",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 4,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "3 checked",
+    "seasonal_pattern": "peak season, comfort over cost",
+    "weights": {
+      "cost_weight": 0.0,
+      "convenience_weight": 0.667,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "spa lounge, chauffeur transfer, the works",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "happy in peak season, money's not the constraint",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "direct whenever it exists",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "loyal to AF, top-tier status",
+        "airlines_mentioned": [
+          "AF"
+        ],
+        "loyalty_signal": true
+      },
+      {
+        "text": "first or business only, comfort over cost",
+        "stance_cost": "price_insensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Frankfurt (FRA). Cabin preference: First. Price sensitivity: none. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 4 days. Multi-city tendency: medium. Preferred departure time: any. Baggage needs: 3 checked. Seasonal pattern: peak season, comfort over cost. Notable history: spa lounge, chauffeur transfer, the works; happy in peak season, money's not the constraint; direct whenever it exists; loyal to AF, top-tier status; first or business only, comfort over cost."
+  },
+  {
+    "user_id": "U26",
+    "home_airport": "HKG",
+    "home_city": "Hong Kong",
+    "preferred_airlines": [
+      "BA",
+      "SQ",
+      "AF"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 480,
+    "date_flexibility_days": 30,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "summer break, rock-bottom fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "broke student, absolute cheapest only",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "huge date flexibility, whole summer free"
+      },
+      {
+        "text": "multi-city euro trip planned"
+      },
+      {
+        "text": "2 stops fine, even overnight layovers",
+        "mentions_stop_count": 2,
+        "stance_directness": "connections_ok"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Hong Kong (HKG). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: broke student, absolute cheapest only; huge date flexibility, whole summer free; multi-city euro trip planned; 2 stops fine, even overnight layovers."
+  },
+  {
+    "user_id": "U27",
+    "home_airport": "BOM",
+    "home_city": "Mumbai",
+    "preferred_airlines": [
+      "JL"
+    ],
+    "preferred_cabin": "Premium Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 240,
+    "date_flexibility_days": 14,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked",
+    "seasonal_pattern": "avoids peak, prefers shoulder",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "retired so dates are flexible"
+      },
+      {
+        "text": "one stop ok if it saves a few hundred",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "avoid holiday crowds and prices"
+      },
+      {
+        "text": "like JL but open to alternatives",
+        "airlines_mentioned": [
+          "JL"
+        ]
+      },
+      {
+        "text": "premium economy is the sweet spot for long hauls"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Mumbai (BOM). Cabin preference: Premium Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 240 min layovers). Date flexibility: 14 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: 2 checked. Seasonal pattern: avoids peak, prefers shoulder. Notable history: retired so dates are flexible; one stop ok if it saves a few hundred; avoid holiday crowds and prices; like JL but open to alternatives; premium economy is the sweet spot for long hauls."
+  },
+  {
+    "user_id": "U28",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "CX",
+      "UA"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 100,
+    "date_flexibility_days": 2,
+    "trip_purpose": "business",
+    "preferred_departure": "evening",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round weekly travel",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "direct or single short connection max"
+      },
+      {
+        "text": "none status, stick to alliance",
+        "loyalty_signal": true
+      },
+      {
+        "text": "evening departures after meetings"
+      },
+      {
+        "text": "mon out fri back, every week"
+      },
+      {
+        "text": "multi-city client hops, LAX is my connection base"
+      }
+    ],
+    "preference_summary": "business traveler based in Delhi (DEL). Cabin preference: Business. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 100 min layovers). Date flexibility: 2 days. Multi-city tendency: high. Preferred departure time: evening. Baggage needs: carry-on only. Seasonal pattern: year-round weekly travel. Notable history: direct or single short connection max; none status, stick to alliance; evening departures after meetings; mon out fri back, every week; multi-city client hops, LAX is my connection base."
+  },
+  {
+    "user_id": "U29",
+    "home_airport": "BOM",
+    "home_city": "Mumbai",
+    "preferred_airlines": [
+      "JL",
+      "QR"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 200,
+    "date_flexibility_days": 3,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "event-driven, fixed dates",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "flew QR to DXB for a festival last yr",
+        "airlines_mentioned": [
+          "QR"
+        ]
+      },
+      {
+        "text": "moderate budget, will pay a bit for convenience",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "whatever airline fits the schedule"
+      },
+      {
+        "text": "dates locked to a conference/wedding"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Mumbai (BOM). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 200 min layovers). Date flexibility: 3 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: event-driven, fixed dates. Notable history: flew QR to DXB for a festival last yr; moderate budget, will pay a bit for convenience; whatever airline fits the schedule; dates locked to a conference/wedding."
+  },
+  {
+    "user_id": "U30",
+    "home_airport": "AKL",
+    "home_city": "Auckland",
+    "preferred_airlines": [
+      "AI",
+      "LH"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 10,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible but nervous about tight connections",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "morning flights feel safer"
+      },
+      {
+        "text": "scared of missing connections, short layovers stress me"
+      },
+      {
+        "text": "no loyalty yet",
+        "loyalty_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Auckland (AKL). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 10 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 1 checked. Seasonal pattern: flexible but nervous about tight connections. Notable history: morning flights feel safer; scared of missing connections, short layovers stress me; no loyalty yet."
+  },
+  {
+    "user_id": "U31",
+    "home_airport": "PEK",
+    "home_city": "Beijing",
+    "preferred_airlines": [
+      "QF",
+      "BA",
+      "EK"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "low",
+    "direct_preference": "strong",
+    "max_layover_minutes": 120,
+    "date_flexibility_days": 1,
+    "trip_purpose": "business",
+    "preferred_departure": "morning",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round, avoids holidays",
+    "weights": {
+      "cost_weight": 0.125,
+      "convenience_weight": 0.625,
+      "time_weight": 0.25
+    },
+    "evidence_fragments": [
+      {
+        "text": "always book business, hate connections",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "lounge access is non-negotiable"
+      },
+      {
+        "text": "need wifi onboard for work"
+      },
+      {
+        "text": "gold w/ Frequent Flyer, ~80 segments/yr"
+      }
+    ],
+    "preference_summary": "business traveler based in Beijing (PEK). Cabin preference: Business. Price sensitivity: low. Direct-flight preference: strong (tolerates up to 120 min layovers). Date flexibility: 1 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: carry-on only. Seasonal pattern: year-round, avoids holidays. Notable history: always book business, hate connections; lounge access is non-negotiable; need wifi onboard for work; gold w/ Frequent Flyer, ~80 segments/yr."
+  },
+  {
+    "user_id": "U32",
+    "home_airport": "PVG",
+    "home_city": "Shanghai",
+    "preferred_airlines": [
+      "AA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 420,
+    "date_flexibility_days": 7,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible, chases cheap fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333,
+      "revealed_usd_per_layover_hour": 17.14
+    },
+    "evidence_fragments": [
+      {
+        "text": "ok with redeye if it's cheaper",
+        "stance_cost": "price_sensitive",
+        "avoids_redeye": true
+      },
+      {
+        "text": "took a 7hr layover in NRT to save $120",
+        "elasticity_usd_per_hour": 17.14,
+        "mentions_hours": 7.0,
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "booked AA last min for a steal",
+        "airlines_mentioned": [
+          "AA"
+        ],
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "cheapest fare wins, dont care about stops",
+        "stance_cost": "price_sensitive",
+        "stance_directness": "connections_ok"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Shanghai (PVG). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 420 min layovers). Date flexibility: 7 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: flexible, chases cheap fares. Notable history: ok with redeye if it's cheaper; took a 7hr layover in NRT to save $120; booked AA last min for a steal; cheapest fare wins, dont care about stops."
+  },
+  {
+    "user_id": "U33",
+    "home_airport": "BKK",
+    "home_city": "Bangkok",
+    "preferred_airlines": [
+      "EK"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 150,
+    "date_flexibility_days": 5,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked + stroller",
+    "seasonal_pattern": "school holidays only (jul-aug, dec)",
+    "weights": {
+      "cost_weight": 0.286,
+      "convenience_weight": 0.571,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "school breaks only so dates are fixed-ish"
+      },
+      {
+        "text": "traveling w/ 2 kids, direct is worth paying for",
+        "stance_directness": "prefers_direct",
+        "family_signal": true
+      },
+      {
+        "text": "need 2 checked bags + stroller",
+        "family_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Bangkok (BKK). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 150 min layovers). Date flexibility: 5 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 2 checked + stroller. Seasonal pattern: school holidays only (jul-aug, dec). Notable history: school breaks only so dates are fixed-ish; traveling w/ 2 kids, direct is worth paying for; need 2 checked bags + stroller."
+  },
+  {
+    "user_id": "U34",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "AF",
+      "EK"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 300,
+    "date_flexibility_days": 21,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "shoulder season to dodge crowds/prices",
+    "weights": {
+      "cost_weight": 0.507,
+      "convenience_weight": 0.299,
+      "time_weight": 0.194
+    },
+    "evidence_fragments": [
+      {
+        "text": "did sin-bkk-bali-syd last quarter"
+      },
+      {
+        "text": "multi-city all the time, CDG-ICN-somewhere"
+      },
+      {
+        "text": "carry-on only, live out of a backpack"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Delhi (DEL). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: did sin-bkk-bali-syd last quarter; multi-city all the time, CDG-ICN-somewhere; carry-on only, live out of a backpack."
+  },
+  {
+    "user_id": "U35",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "QF",
+      "BA",
+      "DL"
+    ],
+    "preferred_cabin": "First",
+    "price_sensitivity": "none",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 4,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "3 checked",
+    "seasonal_pattern": "peak season, comfort over cost",
+    "weights": {
+      "cost_weight": 0.0,
+      "convenience_weight": 0.667,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "first or business only, comfort over cost",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "happy in peak season, money's not the constraint",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "direct whenever it exists",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "loyal to DL, top-tier status",
+        "airlines_mentioned": [
+          "DL"
+        ],
+        "loyalty_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Delhi (DEL). Cabin preference: First. Price sensitivity: none. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 4 days. Multi-city tendency: medium. Preferred departure time: any. Baggage needs: 3 checked. Seasonal pattern: peak season, comfort over cost. Notable history: first or business only, comfort over cost; happy in peak season, money's not the constraint; direct whenever it exists; loyal to DL, top-tier status."
+  },
+  {
+    "user_id": "U36",
+    "home_airport": "BOM",
+    "home_city": "Mumbai",
+    "preferred_airlines": [
+      "KL",
+      "NH",
+      "EK"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 480,
+    "date_flexibility_days": 30,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "summer break, rock-bottom fares",
+    "weights": {
+      "cost_weight": 0.645,
+      "convenience_weight": 0.065,
+      "time_weight": 0.29
+    },
+    "evidence_fragments": [
+      {
+        "text": "huge date flexibility, whole summer free"
+      },
+      {
+        "text": "broke student, absolute cheapest only",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "no bags beyond a backpack"
+      },
+      {
+        "text": "multi-city euro trip planned"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Mumbai (BOM). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: huge date flexibility, whole summer free; broke student, absolute cheapest only; no bags beyond a backpack; multi-city euro trip planned."
+  },
+  {
+    "user_id": "U37",
+    "home_airport": "AMS",
+    "home_city": "Amsterdam",
+    "preferred_airlines": [
+      "QF",
+      "KL",
+      "SQ"
+    ],
+    "preferred_cabin": "Premium Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 240,
+    "date_flexibility_days": 14,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked",
+    "seasonal_pattern": "avoids peak, prefers shoulder",
+    "weights": {
+      "cost_weight": 0.333,
+      "convenience_weight": 0.333,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "retired so dates are flexible"
+      },
+      {
+        "text": "avoid holiday crowds and prices"
+      },
+      {
+        "text": "premium economy is the sweet spot for long hauls"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Amsterdam (AMS). Cabin preference: Premium Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 240 min layovers). Date flexibility: 14 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: 2 checked. Seasonal pattern: avoids peak, prefers shoulder. Notable history: retired so dates are flexible; avoid holiday crowds and prices; premium economy is the sweet spot for long hauls."
+  },
+  {
+    "user_id": "U38",
+    "home_airport": "HKG",
+    "home_city": "Hong Kong",
+    "preferred_airlines": [
+      "TG"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 100,
+    "date_flexibility_days": 2,
+    "trip_purpose": "business",
+    "preferred_departure": "evening",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round weekly travel",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "evening departures after meetings"
+      },
+      {
+        "text": "none status, stick to alliance",
+        "loyalty_signal": true
+      },
+      {
+        "text": "mon out fri back, every week"
+      }
+    ],
+    "preference_summary": "business traveler based in Hong Kong (HKG). Cabin preference: Business. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 100 min layovers). Date flexibility: 2 days. Multi-city tendency: high. Preferred departure time: evening. Baggage needs: carry-on only. Seasonal pattern: year-round weekly travel. Notable history: evening departures after meetings; none status, stick to alliance; mon out fri back, every week."
+  },
+  {
+    "user_id": "U39",
+    "home_airport": "DXB",
+    "home_city": "Dubai",
+    "preferred_airlines": [
+      "DL",
+      "AA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 200,
+    "date_flexibility_days": 3,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "event-driven, fixed dates",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "one stop fine, not two"
+      },
+      {
+        "text": "whatever airline fits the schedule"
+      },
+      {
+        "text": "flew AA to ICN for a festival last yr",
+        "airlines_mentioned": [
+          "AA"
+        ]
+      },
+      {
+        "text": "moderate budget, will pay a bit for convenience",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "dates locked to a conference/wedding"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Dubai (DXB). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 200 min layovers). Date flexibility: 3 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: event-driven, fixed dates. Notable history: one stop fine, not two; whatever airline fits the schedule; flew AA to ICN for a festival last yr; moderate budget, will pay a bit for convenience; dates locked to a conference/wedding."
+  },
+  {
+    "user_id": "U40",
+    "home_airport": "DXB",
+    "home_city": "Dubai",
+    "preferred_airlines": [
+      "KL",
+      "AF",
+      "TK"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 10,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible but nervous about tight connections",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "flexible dates, just want easy"
+      },
+      {
+        "text": "new to flying, want it simple and direct"
+      },
+      {
+        "text": "scared of missing connections, short layovers stress me"
+      },
+      {
+        "text": "morning flights feel safer"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Dubai (DXB). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 10 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 1 checked. Seasonal pattern: flexible but nervous about tight connections. Notable history: flexible dates, just want easy; new to flying, want it simple and direct; scared of missing connections, short layovers stress me; morning flights feel safer."
+  },
+  {
+    "user_id": "U41",
+    "home_airport": "DOH",
+    "home_city": "Doha",
+    "preferred_airlines": [
+      "AF"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "low",
+    "direct_preference": "strong",
+    "max_layover_minutes": 120,
+    "date_flexibility_days": 1,
+    "trip_purpose": "business",
+    "preferred_departure": "morning",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round, avoids holidays",
+    "weights": {
+      "cost_weight": 0.125,
+      "convenience_weight": 0.625,
+      "time_weight": 0.25
+    },
+    "evidence_fragments": [
+      {
+        "text": "lounge access is non-negotiable"
+      },
+      {
+        "text": "gold w/ none, ~80 segments/yr"
+      },
+      {
+        "text": "need wifi onboard for work"
+      },
+      {
+        "text": "always book business, hate connections",
+        "stance_directness": "prefers_direct"
+      }
+    ],
+    "preference_summary": "business traveler based in Doha (DOH). Cabin preference: Business. Price sensitivity: low. Direct-flight preference: strong (tolerates up to 120 min layovers). Date flexibility: 1 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: carry-on only. Seasonal pattern: year-round, avoids holidays. Notable history: lounge access is non-negotiable; gold w/ none, ~80 segments/yr; need wifi onboard for work; always book business, hate connections."
+  },
+  {
+    "user_id": "U42",
+    "home_airport": "FRA",
+    "home_city": "Frankfurt",
+    "preferred_airlines": [
+      "KL",
+      "KE",
+      "QR"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 420,
+    "date_flexibility_days": 7,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible, chases cheap fares",
+    "weights": {
+      "cost_weight": 0.645,
+      "convenience_weight": 0.065,
+      "time_weight": 0.29,
+      "revealed_usd_per_layover_hour": 17.14
+    },
+    "evidence_fragments": [
+      {
+        "text": "ok with redeye if it's cheaper",
+        "stance_cost": "price_sensitive",
+        "avoids_redeye": true
+      },
+      {
+        "text": "booked KE last min for a steal",
+        "airlines_mentioned": [
+          "KE"
+        ],
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "took a 7hr layover in LAX to save $120",
+        "elasticity_usd_per_hour": 17.14,
+        "mentions_hours": 7.0,
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in Frankfurt (FRA). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 420 min layovers). Date flexibility: 7 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: flexible, chases cheap fares. Notable history: ok with redeye if it's cheaper; booked KE last min for a steal; took a 7hr layover in LAX to save $120."
+  },
+  {
+    "user_id": "U43",
+    "home_airport": "FCO",
+    "home_city": "Rome",
+    "preferred_airlines": [
+      "BA",
+      "KL",
+      "KE"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 150,
+    "date_flexibility_days": 5,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked + stroller",
+    "seasonal_pattern": "school holidays only (jul-aug, dec)",
+    "weights": {
+      "cost_weight": 0.286,
+      "convenience_weight": 0.571,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "prefer BA, kids fly free promo once",
+        "airlines_mentioned": [
+          "BA"
+        ],
+        "family_signal": true
+      },
+      {
+        "text": "traveling w/ 2 kids, direct is worth paying for",
+        "stance_directness": "prefers_direct",
+        "family_signal": true
+      },
+      {
+        "text": "morning departures, kids melt down at night",
+        "avoids_redeye": true,
+        "family_signal": true
+      },
+      {
+        "text": "school breaks only so dates are fixed-ish"
+      },
+      {
+        "text": "need 2 checked bags + stroller",
+        "family_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Rome (FCO). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 150 min layovers). Date flexibility: 5 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 2 checked + stroller. Seasonal pattern: school holidays only (jul-aug, dec). Notable history: prefer BA, kids fly free promo once; traveling w/ 2 kids, direct is worth paying for; morning departures, kids melt down at night; school breaks only so dates are fixed-ish; need 2 checked bags + stroller."
+  },
+  {
+    "user_id": "U44",
+    "home_airport": "ICN",
+    "home_city": "Seoul",
+    "preferred_airlines": [
+      "SQ"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 300,
+    "date_flexibility_days": 21,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "shoulder season to dodge crowds/prices",
+    "weights": {
+      "cost_weight": 0.571,
+      "convenience_weight": 0.286,
+      "time_weight": 0.143
+    },
+    "evidence_fragments": [
+      {
+        "text": "did sin-bkk-bali-syd last quarter"
+      },
+      {
+        "text": "multi-city all the time, DXB-SIN-somewhere"
+      },
+      {
+        "text": "super flexible dates, weeks of window"
+      },
+      {
+        "text": "value matters but i'll pay to skip a 10hr layover",
+        "mentions_hours": 10.0,
+        "stance_cost": "price_sensitive"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Seoul (ICN). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: did sin-bkk-bali-syd last quarter; multi-city all the time, DXB-SIN-somewhere; super flexible dates, weeks of window; value matters but i'll pay to skip a 10hr layover."
+  },
+  {
+    "user_id": "U45",
+    "home_airport": "SFO",
+    "home_city": "San Francisco",
+    "preferred_airlines": [
+      "AF",
+      "LH"
+    ],
+    "preferred_cabin": "First",
+    "price_sensitivity": "none",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 4,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "3 checked",
+    "seasonal_pattern": "peak season, comfort over cost",
+    "weights": {
+      "cost_weight": 0.0,
+      "convenience_weight": 0.667,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "spa lounge, chauffeur transfer, the works",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "direct whenever it exists",
+        "stance_directness": "prefers_direct"
+      },
+      {
+        "text": "first or business only, comfort over cost",
+        "stance_cost": "price_insensitive"
+      },
+      {
+        "text": "happy in peak season, money's not the constraint",
+        "stance_cost": "price_insensitive"
+      }
+    ],
+    "preference_summary": "leisure traveler based in San Francisco (SFO). Cabin preference: First. Price sensitivity: none. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 4 days. Multi-city tendency: medium. Preferred departure time: any. Baggage needs: 3 checked. Seasonal pattern: peak season, comfort over cost. Notable history: spa lounge, chauffeur transfer, the works; direct whenever it exists; first or business only, comfort over cost; happy in peak season, money's not the constraint."
+  },
+  {
+    "user_id": "U46",
+    "home_airport": "LHR",
+    "home_city": "London",
+    "preferred_airlines": [
+      "QR"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "high",
+    "direct_preference": "none",
+    "max_layover_minutes": 480,
+    "date_flexibility_days": 30,
+    "trip_purpose": "leisure",
+    "preferred_departure": "any",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "summer break, rock-bottom fares",
+    "weights": {
+      "cost_weight": 0.667,
+      "convenience_weight": 0.0,
+      "time_weight": 0.333
+    },
+    "evidence_fragments": [
+      {
+        "text": "multi-city euro trip planned"
+      },
+      {
+        "text": "no bags beyond a backpack"
+      },
+      {
+        "text": "broke student, absolute cheapest only",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "huge date flexibility, whole summer free"
+      },
+      {
+        "text": "2 stops fine, even overnight layovers",
+        "mentions_stop_count": 2,
+        "stance_directness": "connections_ok"
+      }
+    ],
+    "preference_summary": "leisure traveler based in London (LHR). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: multi-city euro trip planned; no bags beyond a backpack; broke student, absolute cheapest only; huge date flexibility, whole summer free; 2 stops fine, even overnight layovers."
+  },
+  {
+    "user_id": "U47",
+    "home_airport": "ORD",
+    "home_city": "Chicago",
+    "preferred_airlines": [
+      "AI"
+    ],
+    "preferred_cabin": "Premium Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 240,
+    "date_flexibility_days": 14,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "2 checked",
+    "seasonal_pattern": "avoids peak, prefers shoulder",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "premium economy is the sweet spot for long hauls"
+      },
+      {
+        "text": "one stop ok if it saves a few hundred",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "like AI but open to alternatives",
+        "airlines_mentioned": [
+          "AI"
+        ]
+      }
+    ],
+    "preference_summary": "leisure traveler based in Chicago (ORD). Cabin preference: Premium Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 240 min layovers). Date flexibility: 14 days. Multi-city tendency: medium. Preferred departure time: morning. Baggage needs: 2 checked. Seasonal pattern: avoids peak, prefers shoulder. Notable history: premium economy is the sweet spot for long hauls; one stop ok if it saves a few hundred; like AI but open to alternatives."
+  },
+  {
+    "user_id": "U48",
+    "home_airport": "MEX",
+    "home_city": "Mexico City",
+    "preferred_airlines": [
+      "CX",
+      "AI",
+      "SQ"
+    ],
+    "preferred_cabin": "Business",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 100,
+    "date_flexibility_days": 2,
+    "trip_purpose": "business",
+    "preferred_departure": "evening",
+    "baggage_preference": "carry-on only",
+    "seasonal_pattern": "year-round weekly travel",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "multi-city client hops, FRA is my connection base"
+      },
+      {
+        "text": "direct or single short connection max"
+      },
+      {
+        "text": "evening departures after meetings"
+      },
+      {
+        "text": "mon out fri back, every week"
+      },
+      {
+        "text": "none status, stick to alliance",
+        "loyalty_signal": true
+      }
+    ],
+    "preference_summary": "business traveler based in Mexico City (MEX). Cabin preference: Business. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 100 min layovers). Date flexibility: 2 days. Multi-city tendency: high. Preferred departure time: evening. Baggage needs: carry-on only. Seasonal pattern: year-round weekly travel. Notable history: multi-city client hops, FRA is my connection base; direct or single short connection max; evening departures after meetings; mon out fri back, every week; none status, stick to alliance."
+  },
+  {
+    "user_id": "U49",
+    "home_airport": "DEL",
+    "home_city": "Delhi",
+    "preferred_airlines": [
+      "BA",
+      "EK",
+      "UA"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "moderate",
+    "max_layover_minutes": 200,
+    "date_flexibility_days": 3,
+    "trip_purpose": "mixed",
+    "preferred_departure": "any",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "event-driven, fixed dates",
+    "weights": {
+      "cost_weight": 0.413,
+      "convenience_weight": 0.317,
+      "time_weight": 0.27
+    },
+    "evidence_fragments": [
+      {
+        "text": "moderate budget, will pay a bit for convenience",
+        "stance_cost": "price_sensitive"
+      },
+      {
+        "text": "dates locked to a conference/wedding"
+      },
+      {
+        "text": "whatever airline fits the schedule"
+      },
+      {
+        "text": "flew UA to IST for a festival last yr",
+        "airlines_mentioned": [
+          "UA"
+        ]
+      },
+      {
+        "text": "one stop fine, not two"
+      }
+    ],
+    "preference_summary": "mixed traveler based in Delhi (DEL). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: moderate (tolerates up to 200 min layovers). Date flexibility: 3 days. Multi-city tendency: low. Preferred departure time: any. Baggage needs: 1 checked. Seasonal pattern: event-driven, fixed dates. Notable history: moderate budget, will pay a bit for convenience; dates locked to a conference/wedding; whatever airline fits the schedule; flew UA to IST for a festival last yr; one stop fine, not two."
+  },
+  {
+    "user_id": "U50",
+    "home_airport": "SIN",
+    "home_city": "Singapore",
+    "preferred_airlines": [
+      "LH",
+      "UA",
+      "TK"
+    ],
+    "preferred_cabin": "Economy",
+    "price_sensitivity": "medium",
+    "direct_preference": "strong",
+    "max_layover_minutes": 90,
+    "date_flexibility_days": 10,
+    "trip_purpose": "leisure",
+    "preferred_departure": "morning",
+    "baggage_preference": "1 checked",
+    "seasonal_pattern": "flexible but nervous about tight connections",
+    "weights": {
+      "cost_weight": 0.294,
+      "convenience_weight": 0.529,
+      "time_weight": 0.176
+    },
+    "evidence_fragments": [
+      {
+        "text": "scared of missing connections, short layovers stress me"
+      },
+      {
+        "text": "new to flying, want it simple and direct"
+      },
+      {
+        "text": "flexible dates, just want easy"
+      },
+      {
+        "text": "no loyalty yet",
+        "loyalty_signal": true
+      }
+    ],
+    "preference_summary": "leisure traveler based in Singapore (SIN). Cabin preference: Economy. Price sensitivity: medium. Direct-flight preference: strong (tolerates up to 90 min layovers). Date flexibility: 10 days. Multi-city tendency: low. Preferred departure time: morning. Baggage needs: 1 checked. Seasonal pattern: flexible but nervous about tight connections. Notable history: scared of missing connections, short layovers stress me; new to flying, want it simple and direct; flexible dates, just want easy; no loyalty yet."
+  }
+]
