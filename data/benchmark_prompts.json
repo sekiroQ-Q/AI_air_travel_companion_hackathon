@@ -1,0 +1,92 @@
+[
+  {
+    "prompt_id": "B01",
+    "user_id": "U01",
+    "request": "I need to get from home to Tokyo next month, what do you suggest?",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='strong' and max_layover_minutes=120.",
+      "Weight cost vs convenience according to price_sensitivity='low'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  },
+  {
+    "prompt_id": "B02",
+    "user_id": "U02",
+    "request": "Find me the best way to do a London + Paris + Rome trip in one journey.",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='none' and max_layover_minutes=420.",
+      "Weight cost vs convenience according to price_sensitivity='high'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  },
+  {
+    "prompt_id": "B03",
+    "user_id": "U03",
+    "request": "Cheapest option to Bali, I'm flexible on dates over the summer.",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='strong' and max_layover_minutes=150.",
+      "Weight cost vs convenience according to price_sensitivity='medium'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  },
+  {
+    "prompt_id": "B04",
+    "user_id": "U04",
+    "request": "Book me something to New York for a Tuesday meeting, back Thursday.",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='moderate' and max_layover_minutes=300.",
+      "Weight cost vs convenience according to price_sensitivity='high'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  },
+  {
+    "prompt_id": "B05",
+    "user_id": "U05",
+    "request": "I want to visit Sydney around the holidays — what should I expect?",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='strong' and max_layover_minutes=90.",
+      "Weight cost vs convenience according to price_sensitivity='none'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  },
+  {
+    "prompt_id": "B06",
+    "user_id": "U06",
+    "request": "Plan a multi-city Asia trip, I have about three weeks of flexibility.",
+    "expected_behavior": [
+      "Infer preferences from BOTH structured fields and raw_history (don't just read columns).",
+      "Respect this user's direct_preference='none' and max_layover_minutes=480.",
+      "Weight cost vs convenience according to price_sensitivity='high'.",
+      "Filter flights from the user's home_airport and (where relevant) preferred_airlines.",
+      "Surface the cost-vs-time trade-off explicitly (e.g. direct $X / 1-stop $Y saving Z hrs).",
+      "Account for seasonal/holiday pricing and seat scarcity for the chosen dates.",
+      "Explain WHY the top pick fits this traveler, citing the evidence used."
+    ],
+    "notes": "No single correct answer; judged on preference inference, constraint handling, trade-off reasoning, and clarity."
+  }
+]
