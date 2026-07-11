@@ -17,8 +17,10 @@
     "seasonal_pattern": "year-round, avoids holidays",
     "weights": {
       "cost_weight": 0.125,
-      "convenience_weight": 0.625,
-      "time_weight": 0.25
+      "time_weight": 0.25,
+      "stops_weight": 0.344,
+      "layover_weight": 0.219,
+      "reliability_weight": 0.062
     },
     "evidence_fragments": [
       {
@@ -54,8 +56,10 @@
     "seasonal_pattern": "flexible, chases cheap fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
       "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0,
       "revealed_usd_per_layover_hour": 17.14
     },
     "evidence_fragments": [
@@ -110,8 +114,10 @@
     "seasonal_pattern": "school holidays only (jul-aug, dec)",
     "weights": {
       "cost_weight": 0.286,
-      "convenience_weight": 0.571,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.314,
+      "layover_weight": 0.2,
+      "reliability_weight": 0.057
     },
     "evidence_fragments": [
       {
@@ -159,8 +165,10 @@
     "seasonal_pattern": "shoulder season to dodge crowds/prices",
     "weights": {
       "cost_weight": 0.571,
-      "convenience_weight": 0.286,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.11,
+      "layover_weight": 0.147,
+      "reliability_weight": 0.029
     },
     "evidence_fragments": [
       {
@@ -172,7 +180,8 @@
       {
         "text": "value matters but i'll pay to skip a 10hr layover",
         "mentions_hours": 10.0,
-        "stance_cost": "price_sensitive"
+        "stance_cost": "price_sensitive",
+        "stance_layover": "averse_to_long"
       }
     ],
     "preference_summary": "mixed traveler based in Melbourne (MEL). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: multi-city all the time, HKG-ICN-somewhere; carry-on only, live out of a backpack; value matters but i'll pay to skip a 10hr layover."
@@ -195,8 +204,10 @@
     "seasonal_pattern": "peak season, comfort over cost",
     "weights": {
       "cost_weight": 0.0,
-      "convenience_weight": 0.667,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.367,
+      "layover_weight": 0.233,
+      "reliability_weight": 0.067
     },
     "evidence_fragments": [
       {
@@ -237,8 +248,10 @@
     "seasonal_pattern": "summer break, rock-bottom fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0
     },
     "evidence_fragments": [
       {
@@ -250,7 +263,8 @@
       {
         "text": "2 stops fine, even overnight layovers",
         "mentions_stop_count": 2,
-        "stance_directness": "connections_ok"
+        "stance_directness": "connections_ok",
+        "stance_layover": "tolerant"
       },
       {
         "text": "no bags beyond a backpack"
@@ -281,8 +295,10 @@
     "seasonal_pattern": "avoids peak, prefers shoulder",
     "weights": {
       "cost_weight": 0.333,
-      "convenience_weight": 0.333,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.183,
+      "layover_weight": 0.117,
+      "reliability_weight": 0.033
     },
     "evidence_fragments": [
       {
@@ -320,8 +336,10 @@
     "seasonal_pattern": "year-round weekly travel",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -355,8 +373,10 @@
     "seasonal_pattern": "event-driven, fixed dates",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -396,8 +416,11 @@
     "seasonal_pattern": "flexible but nervous about tight connections",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.238,
+      "non_monotonic_layover_preference": true
     },
     "evidence_fragments": [
       {
@@ -405,7 +428,8 @@
         "loyalty_signal": true
       },
       {
-        "text": "scared of missing connections, short layovers stress me"
+        "text": "scared of missing connections, short layovers stress me",
+        "stance_layover": "wants_buffer"
       },
       {
         "text": "new to flying, want it simple and direct"
@@ -431,8 +455,10 @@
     "seasonal_pattern": "year-round, avoids holidays",
     "weights": {
       "cost_weight": 0.125,
-      "convenience_weight": 0.625,
-      "time_weight": 0.25
+      "time_weight": 0.25,
+      "stops_weight": 0.344,
+      "layover_weight": 0.219,
+      "reliability_weight": 0.062
     },
     "evidence_fragments": [
       {
@@ -467,8 +493,10 @@
     "seasonal_pattern": "flexible, chases cheap fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
       "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0,
       "revealed_usd_per_layover_hour": 17.14
     },
     "evidence_fragments": [
@@ -516,8 +544,10 @@
     "seasonal_pattern": "school holidays only (jul-aug, dec)",
     "weights": {
       "cost_weight": 0.286,
-      "convenience_weight": 0.571,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.314,
+      "layover_weight": 0.2,
+      "reliability_weight": 0.057
     },
     "evidence_fragments": [
       {
@@ -554,8 +584,10 @@
     "seasonal_pattern": "shoulder season to dodge crowds/prices",
     "weights": {
       "cost_weight": 0.571,
-      "convenience_weight": 0.286,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.11,
+      "layover_weight": 0.147,
+      "reliability_weight": 0.029
     },
     "evidence_fragments": [
       {
@@ -564,7 +596,8 @@
       {
         "text": "value matters but i'll pay to skip a 10hr layover",
         "mentions_hours": 10.0,
-        "stance_cost": "price_sensitive"
+        "stance_cost": "price_sensitive",
+        "stance_layover": "averse_to_long"
       },
       {
         "text": "did sin-bkk-bali-syd last quarter"
@@ -591,8 +624,10 @@
     "seasonal_pattern": "peak season, comfort over cost",
     "weights": {
       "cost_weight": 0.0,
-      "convenience_weight": 0.621,
-      "time_weight": 0.379
+      "time_weight": 0.379,
+      "stops_weight": 0.341,
+      "layover_weight": 0.217,
+      "reliability_weight": 0.062
     },
     "evidence_fragments": [
       {
@@ -633,14 +668,17 @@
     "seasonal_pattern": "summer break, rock-bottom fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0
     },
     "evidence_fragments": [
       {
         "text": "2 stops fine, even overnight layovers",
         "mentions_stop_count": 2,
-        "stance_directness": "connections_ok"
+        "stance_directness": "connections_ok",
+        "stance_layover": "tolerant"
       },
       {
         "text": "multi-city euro trip planned"
@@ -676,8 +714,10 @@
     "seasonal_pattern": "avoids peak, prefers shoulder",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -721,8 +761,10 @@
     "seasonal_pattern": "year-round weekly travel",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -757,8 +799,10 @@
     "seasonal_pattern": "event-driven, fixed dates",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -803,8 +847,10 @@
     "seasonal_pattern": "flexible but nervous about tight connections",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -838,8 +884,10 @@
     "seasonal_pattern": "year-round, avoids holidays",
     "weights": {
       "cost_weight": 0.129,
-      "convenience_weight": 0.581,
-      "time_weight": 0.29
+      "time_weight": 0.29,
+      "stops_weight": 0.319,
+      "layover_weight": 0.203,
+      "reliability_weight": 0.058
     },
     "evidence_fragments": [
       {
@@ -880,8 +928,10 @@
     "seasonal_pattern": "flexible, chases cheap fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
       "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0,
       "revealed_usd_per_layover_hour": 17.14
     },
     "evidence_fragments": [
@@ -929,8 +979,10 @@
     "seasonal_pattern": "school holidays only (jul-aug, dec)",
     "weights": {
       "cost_weight": 0.286,
-      "convenience_weight": 0.571,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.314,
+      "layover_weight": 0.2,
+      "reliability_weight": 0.057
     },
     "evidence_fragments": [
       {
@@ -974,8 +1026,10 @@
     "seasonal_pattern": "shoulder season to dodge crowds/prices",
     "weights": {
       "cost_weight": 0.571,
-      "convenience_weight": 0.286,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.11,
+      "layover_weight": 0.147,
+      "reliability_weight": 0.029
     },
     "evidence_fragments": [
       {
@@ -987,7 +1041,8 @@
       {
         "text": "value matters but i'll pay to skip a 10hr layover",
         "mentions_hours": 10.0,
-        "stance_cost": "price_sensitive"
+        "stance_cost": "price_sensitive",
+        "stance_layover": "averse_to_long"
       },
       {
         "text": "carry-on only, live out of a backpack"
@@ -1014,8 +1069,10 @@
     "seasonal_pattern": "peak season, comfort over cost",
     "weights": {
       "cost_weight": 0.0,
-      "convenience_weight": 0.667,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.367,
+      "layover_weight": 0.233,
+      "reliability_weight": 0.067
     },
     "evidence_fragments": [
       {
@@ -1064,8 +1121,10 @@
     "seasonal_pattern": "summer break, rock-bottom fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0
     },
     "evidence_fragments": [
       {
@@ -1081,7 +1140,8 @@
       {
         "text": "2 stops fine, even overnight layovers",
         "mentions_stop_count": 2,
-        "stance_directness": "connections_ok"
+        "stance_directness": "connections_ok",
+        "stance_layover": "tolerant"
       }
     ],
     "preference_summary": "leisure traveler based in Hong Kong (HKG). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: broke student, absolute cheapest only; huge date flexibility, whole summer free; multi-city euro trip planned; 2 stops fine, even overnight layovers."
@@ -1104,8 +1164,10 @@
     "seasonal_pattern": "avoids peak, prefers shoulder",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -1149,8 +1211,10 @@
     "seasonal_pattern": "year-round weekly travel",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -1191,8 +1255,10 @@
     "seasonal_pattern": "event-driven, fixed dates",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -1233,15 +1299,19 @@
     "seasonal_pattern": "flexible but nervous about tight connections",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.238,
+      "non_monotonic_layover_preference": true
     },
     "evidence_fragments": [
       {
         "text": "morning flights feel safer"
       },
       {
-        "text": "scared of missing connections, short layovers stress me"
+        "text": "scared of missing connections, short layovers stress me",
+        "stance_layover": "wants_buffer"
       },
       {
         "text": "no loyalty yet",
@@ -1270,8 +1340,10 @@
     "seasonal_pattern": "year-round, avoids holidays",
     "weights": {
       "cost_weight": 0.125,
-      "convenience_weight": 0.625,
-      "time_weight": 0.25
+      "time_weight": 0.25,
+      "stops_weight": 0.344,
+      "layover_weight": 0.219,
+      "reliability_weight": 0.062
     },
     "evidence_fragments": [
       {
@@ -1308,8 +1380,10 @@
     "seasonal_pattern": "flexible, chases cheap fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
       "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0,
       "revealed_usd_per_layover_hour": 17.14
     },
     "evidence_fragments": [
@@ -1357,8 +1431,10 @@
     "seasonal_pattern": "school holidays only (jul-aug, dec)",
     "weights": {
       "cost_weight": 0.286,
-      "convenience_weight": 0.571,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.314,
+      "layover_weight": 0.2,
+      "reliability_weight": 0.057
     },
     "evidence_fragments": [
       {
@@ -1395,8 +1471,10 @@
     "seasonal_pattern": "shoulder season to dodge crowds/prices",
     "weights": {
       "cost_weight": 0.507,
-      "convenience_weight": 0.299,
-      "time_weight": 0.194
+      "time_weight": 0.194,
+      "stops_weight": 0.164,
+      "layover_weight": 0.104,
+      "reliability_weight": 0.03
     },
     "evidence_fragments": [
       {
@@ -1431,8 +1509,10 @@
     "seasonal_pattern": "peak season, comfort over cost",
     "weights": {
       "cost_weight": 0.0,
-      "convenience_weight": 0.667,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.367,
+      "layover_weight": 0.233,
+      "reliability_weight": 0.067
     },
     "evidence_fragments": [
       {
@@ -1477,8 +1557,10 @@
     "seasonal_pattern": "summer break, rock-bottom fares",
     "weights": {
       "cost_weight": 0.645,
-      "convenience_weight": 0.065,
-      "time_weight": 0.29
+      "time_weight": 0.29,
+      "stops_weight": 0.035,
+      "layover_weight": 0.023,
+      "reliability_weight": 0.006
     },
     "evidence_fragments": [
       {
@@ -1517,8 +1599,10 @@
     "seasonal_pattern": "avoids peak, prefers shoulder",
     "weights": {
       "cost_weight": 0.333,
-      "convenience_weight": 0.333,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.183,
+      "layover_weight": 0.117,
+      "reliability_weight": 0.033
     },
     "evidence_fragments": [
       {
@@ -1551,8 +1635,10 @@
     "seasonal_pattern": "year-round weekly travel",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -1587,8 +1673,10 @@
     "seasonal_pattern": "event-driven, fixed dates",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -1633,8 +1721,11 @@
     "seasonal_pattern": "flexible but nervous about tight connections",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.238,
+      "non_monotonic_layover_preference": true
     },
     "evidence_fragments": [
       {
@@ -1644,7 +1735,8 @@
         "text": "new to flying, want it simple and direct"
       },
       {
-        "text": "scared of missing connections, short layovers stress me"
+        "text": "scared of missing connections, short layovers stress me",
+        "stance_layover": "wants_buffer"
       },
       {
         "text": "morning flights feel safer"
@@ -1670,8 +1762,10 @@
     "seasonal_pattern": "year-round, avoids holidays",
     "weights": {
       "cost_weight": 0.125,
-      "convenience_weight": 0.625,
-      "time_weight": 0.25
+      "time_weight": 0.25,
+      "stops_weight": 0.344,
+      "layover_weight": 0.219,
+      "reliability_weight": 0.062
     },
     "evidence_fragments": [
       {
@@ -1710,8 +1804,10 @@
     "seasonal_pattern": "flexible, chases cheap fares",
     "weights": {
       "cost_weight": 0.645,
-      "convenience_weight": 0.065,
       "time_weight": 0.29,
+      "stops_weight": 0.045,
+      "layover_weight": 0.014,
+      "reliability_weight": 0.006,
       "revealed_usd_per_layover_hour": 17.14
     },
     "evidence_fragments": [
@@ -1756,8 +1852,10 @@
     "seasonal_pattern": "school holidays only (jul-aug, dec)",
     "weights": {
       "cost_weight": 0.286,
-      "convenience_weight": 0.571,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.314,
+      "layover_weight": 0.2,
+      "reliability_weight": 0.057
     },
     "evidence_fragments": [
       {
@@ -1805,8 +1903,10 @@
     "seasonal_pattern": "shoulder season to dodge crowds/prices",
     "weights": {
       "cost_weight": 0.571,
-      "convenience_weight": 0.286,
-      "time_weight": 0.143
+      "time_weight": 0.143,
+      "stops_weight": 0.11,
+      "layover_weight": 0.147,
+      "reliability_weight": 0.029
     },
     "evidence_fragments": [
       {
@@ -1821,7 +1921,8 @@
       {
         "text": "value matters but i'll pay to skip a 10hr layover",
         "mentions_hours": 10.0,
-        "stance_cost": "price_sensitive"
+        "stance_cost": "price_sensitive",
+        "stance_layover": "averse_to_long"
       }
     ],
     "preference_summary": "mixed traveler based in Seoul (ICN). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: moderate (tolerates up to 300 min layovers). Date flexibility: 21 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: shoulder season to dodge crowds/prices. Notable history: did sin-bkk-bali-syd last quarter; multi-city all the time, DXB-SIN-somewhere; super flexible dates, weeks of window; value matters but i'll pay to skip a 10hr layover."
@@ -1845,8 +1946,10 @@
     "seasonal_pattern": "peak season, comfort over cost",
     "weights": {
       "cost_weight": 0.0,
-      "convenience_weight": 0.667,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.367,
+      "layover_weight": 0.233,
+      "reliability_weight": 0.067
     },
     "evidence_fragments": [
       {
@@ -1886,8 +1989,10 @@
     "seasonal_pattern": "summer break, rock-bottom fares",
     "weights": {
       "cost_weight": 0.667,
-      "convenience_weight": 0.0,
-      "time_weight": 0.333
+      "time_weight": 0.333,
+      "stops_weight": 0.0,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.0
     },
     "evidence_fragments": [
       {
@@ -1906,7 +2011,8 @@
       {
         "text": "2 stops fine, even overnight layovers",
         "mentions_stop_count": 2,
-        "stance_directness": "connections_ok"
+        "stance_directness": "connections_ok",
+        "stance_layover": "tolerant"
       }
     ],
     "preference_summary": "leisure traveler based in London (LHR). Cabin preference: Economy. Price sensitivity: high. Direct-flight preference: none (tolerates up to 480 min layovers). Date flexibility: 30 days. Multi-city tendency: high. Preferred departure time: any. Baggage needs: carry-on only. Seasonal pattern: summer break, rock-bottom fares. Notable history: multi-city euro trip planned; no bags beyond a backpack; broke student, absolute cheapest only; huge date flexibility, whole summer free; 2 stops fine, even overnight layovers."
@@ -1929,8 +2035,10 @@
     "seasonal_pattern": "avoids peak, prefers shoulder",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -1969,8 +2077,10 @@
     "seasonal_pattern": "year-round weekly travel",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.185,
+      "reliability_weight": 0.053
     },
     "evidence_fragments": [
       {
@@ -2012,8 +2122,10 @@
     "seasonal_pattern": "event-driven, fixed dates",
     "weights": {
       "cost_weight": 0.413,
-      "convenience_weight": 0.317,
-      "time_weight": 0.27
+      "time_weight": 0.27,
+      "stops_weight": 0.175,
+      "layover_weight": 0.111,
+      "reliability_weight": 0.032
     },
     "evidence_fragments": [
       {
@@ -2058,12 +2170,16 @@
     "seasonal_pattern": "flexible but nervous about tight connections",
     "weights": {
       "cost_weight": 0.294,
-      "convenience_weight": 0.529,
-      "time_weight": 0.176
+      "time_weight": 0.176,
+      "stops_weight": 0.291,
+      "layover_weight": 0.0,
+      "reliability_weight": 0.238,
+      "non_monotonic_layover_preference": true
     },
     "evidence_fragments": [
       {
-        "text": "scared of missing connections, short layovers stress me"
+        "text": "scared of missing connections, short layovers stress me",
+        "stance_layover": "wants_buffer"
       },
       {
         "text": "new to flying, want it simple and direct"
