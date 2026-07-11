@@ -65,19 +65,23 @@ class PreferenceEmbedder:
     EMBED_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # 384-dim, ~90MB
     FALLBACK_DIM = 128
 
-    def __init__(self):
+    def __init__(self, device: str | None = None):
         self.mode = None
         self._model = None
         self._tfidf = None
         self._svd = None
+        # auto-detect GPU; explicit device= overrides. At 50 profiles this
+        # model is fast either way -- GPU only starts to matter if you
+        # scale this up to embedding thousands of flight descriptions too.
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self._init_backend()
 
     def _init_backend(self):
         try:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(self.EMBED_MODEL_NAME)
+            self._model = SentenceTransformer(self.EMBED_MODEL_NAME, device=self.device)
             self.mode = "transformer"
-            print(f"[PreferenceEmbedder] loaded {self.EMBED_MODEL_NAME}")
+            print(f"[PreferenceEmbedder] loaded {self.EMBED_MODEL_NAME} on {self.device}")
         except Exception as e:
             print(
                 f"[PreferenceEmbedder] could not reach huggingface.co ({e.__class__.__name__}) "
@@ -181,11 +185,21 @@ class UserPreferenceStore:
 class MultiObjectiveUtility(nn.Module):
     """A small, differentiable multi-objective utility function.
 
-    Three axes -- price, duration, inconvenience -- each already
-    normalized to [0, 1] by Module 1. Weights are initialized from the
-    fused profile (Module 1's `weights` field) and pushed through softmax
-    so they stay positive and sum to 1. Utility is the negative weighted
-    sum: lower cost/time/inconvenience => higher utility.
+    Five axes -- price, duration, stops, layover duration, on-time
+    unreliability -- normalized to [0, 1] *per query* (see
+    normalize_candidates() below), not against the global dataset. Weights
+    are initialized from the fused profile (Module 1's `weights` field)
+    and pushed through softmax so they stay positive and sum to 1. Utility
+    is the negative weighted sum: lower cost/time/stops/layover/
+    unreliability => higher utility.
+
+    Stops, layover duration, and on-time reliability used to be
+    pre-blended into a single hand-tuned "inconvenience_score" formula
+    with fixed global coefficients. They're independent axes here, each
+    with its own per-user weight from Module 1's split_convenience_pool()
+    -- so a user who's revealed they mind connection count but not
+    layover length (or vice versa) is actually scored differently,
+    instead of both being flattened into one number.
 
     This is deliberately a real nn.Module with learnable parameters, not
     a plain dict lookup: it's a genuine (if small) PyTorch component, and
@@ -194,18 +208,63 @@ class MultiObjectiveUtility(nn.Module):
     loss is a few lines from here, without touching anything upstream.
     """
 
-    def __init__(self, cost_w: float, time_w: float, inconvenience_w: float):
+    AXES = ("cost", "time", "stops", "layover", "reliability")
+    RAW_COLS = ("price", "duration_minutes", "stops", "layover_hours", "reliability_penalty")
+
+    def __init__(self, weights: dict):
         super().__init__()
-        init = torch.log(torch.tensor([cost_w, time_w, inconvenience_w], dtype=torch.float32) + 1e-6)
+        vals = [weights.get(f"{axis}_weight", 0.2) for axis in self.AXES]
+        init = torch.log(torch.tensor(vals, dtype=torch.float32) + 1e-6)
         self.raw_weights = nn.Parameter(init)
 
     def weights(self) -> torch.Tensor:
         return torch.softmax(self.raw_weights, dim=0)
 
     def forward(self, features: torch.Tensor) -> torch.Tensor:
-        """features: [N, 3] columns = (price_norm, duration_norm, inconvenience_norm)"""
+        """features: [N, 5] columns, in RAW_COLS order, each already
+        normalized to [0, 1] *within this candidate set* by
+        normalize_candidates()."""
         w = self.weights()
         return -(features * w).sum(dim=1)
+
+
+def normalize_candidates(df_candidates: pd.DataFrame, cols=MultiObjectiveUtility.RAW_COLS) -> pd.DataFrame:
+    """Min-max normalize each raw axis *within this specific candidate
+    set*, not against the whole dataset.
+
+    This replaces normalizing once in Module 1 against the global min/max
+    across all 50,000 flights. Global normalization meant a user's stated
+    weight (e.g. "cost matters 30%") swung the ranking by a different,
+    route-dependent amount every time -- e.g. CPT->DOH's price only spans
+    ~$442-$4,566 against a global range of ~$40-$17,832, so price_norm for
+    that route only ever occupied about a quarter of [0, 1] while
+    duration_norm occupied nearly the whole range, silently discounting
+    cost's actual influence to a fraction of what the weight implied.
+    Normalizing per-query instead makes each axis span its full local
+    range, so the weights behave consistently regardless of which route
+    is queried.
+
+    Trade-off worth knowing: this is a genuine trade, not a free fix. A
+    candidate set with very little real-world spread (e.g. only 2-3
+    flights on a thin route, a few dollars apart) will still get stretched
+    across the full [0, 1] range on that axis -- a trivial price
+    difference can look as decisive as a $2,000 one would on a busier
+    route. Global normalization protected against that at the cost of the
+    cross-route inconsistency above; this pipeline takes the opposite
+    trade-off deliberately, since "the weights should mean what they say
+    for this query" matters more here than "small dollar gaps on thin
+    routes shouldn't look dramatic."
+    """
+    normed = {}
+    for col in cols:
+        cmin, cmax = df_candidates[col].min(), df_candidates[col].max()
+        if cmax > cmin:
+            normed[f"{col}_norm"] = (df_candidates[col] - cmin) / (cmax - cmin)
+        else:
+            # one candidate, or every candidate tied on this axis -- there's
+            # nothing to differentiate, so it contributes 0 either way
+            normed[f"{col}_norm"] = pd.Series(0.0, index=df_candidates.index)
+    return pd.DataFrame(normed, index=df_candidates.index)
 
 
 # =========================================================================== #
@@ -232,11 +291,22 @@ def filter_candidates(
     return df.reset_index(drop=True)
 
 
-def pareto_mask(df: pd.DataFrame, cols=("price", "duration_minutes", "inconvenience_score")) -> np.ndarray:
+def pareto_mask(df: pd.DataFrame, cols=("price", "duration_minutes", "stops", "layover_hours", "reliability_penalty")) -> np.ndarray:
     """Boolean mask marking Pareto-optimal (non-dominated) rows across the
-    given minimize-columns. O(n^2) -- fine at the scale of a filtered
-    single-route candidate set (dozens to low hundreds of rows). Swap for
-    a sweep-line algorithm if you ever filter down to thousands of rows."""
+    given minimize-columns. Normalization is monotonic, so running this on
+    raw columns vs. the _norm columns gives identical results -- raw units
+    are used here only because they read better if you print df_scored
+    for debugging. O(n^2) -- fine at the scale of a filtered single-route
+    candidate set (dozens to low hundreds of rows). Swap for a sweep-line
+    algorithm if you ever filter down to thousands of rows.
+
+    Five axes (vs. the original three) means fewer rows dominate each
+    other, so expect a larger frontier than before -- that's a correct
+    consequence of tracking real independent trade-offs, not a bug. If
+    you want a smaller frontier for a cleaner demo slide, cap it in the
+    caller (e.g. take the cheapest, fastest, and top-utility pick) rather
+    than collapsing axes back together here.
+    """
     values = df[list(cols)].to_numpy()
     n = len(values)
     dominated = np.zeros(n, dtype=bool)
@@ -262,13 +332,9 @@ def score_and_rank(df_candidates: pd.DataFrame, profile: dict, top_k: int = 3) -
         return {"top_k": [], "pareto_frontier": [], "learned_weights": None}
 
     weights = profile.get("weights", {})
-    utility_fn = MultiObjectiveUtility(
-        cost_w=weights.get("cost_weight", 0.34),
-        time_w=weights.get("time_weight", 0.33),
-        inconvenience_w=weights.get("convenience_weight", 0.33),
-    )
+    utility_fn = MultiObjectiveUtility(weights)
 
-    feat_cols = ["price_norm", "duration_minutes_norm", "inconvenience_score_norm"]
+    feat_cols = ["price_norm", "duration_minutes_norm", "stops_norm", "layover_hours_norm", "reliability_penalty_norm"]
     features = torch.tensor(df_candidates[feat_cols].to_numpy(), dtype=torch.float32)
 
     with torch.no_grad():
@@ -292,7 +358,7 @@ def score_and_rank(df_candidates: pd.DataFrame, profile: dict, top_k: int = 3) -
     return {
         "top_k": top_k_rows[keep_cols].to_dict(orient="records"),
         "pareto_frontier": pareto_rows[keep_cols].to_dict(orient="records"),
-        "learned_weights": {k: round(v, 3) for k, v in zip(["cost", "time", "inconvenience"], learned)},
+        "learned_weights": {axis: round(v, 3) for axis, v in zip(MultiObjectiveUtility.AXES, learned)},
     }
 
 

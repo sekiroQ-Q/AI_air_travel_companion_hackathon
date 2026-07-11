@@ -120,17 +120,19 @@ def clean_flights(df: pd.DataFrame) -> pd.DataFrame:
     df["is_redeye"] = df["departure_hour_utc"].between(0, 5, inclusive="both")
 
     df["layover_hours"] = (df["layover_minutes"] / 60).round(2)
-    # a single "inconvenience" axis blending stop count, total layover
-    # exposure, and on-time reliability -- one of the three optimizer axes
-    df["inconvenience_score"] = (
-        df["stops"].astype(float) * 2
-        + df["layover_hours"] * 0.5
-        + (100 - df["on_time_performance"].fillna(80)) * 0.05
-    ).round(3)
+    # Previously this was one hand-tuned "inconvenience_score" formula
+    # blending stops/layover/reliability with fixed coefficients (2, 0.5,
+    # 0.05) applied identically to every user. That baked a single global
+    # opinion about which of these three matters most into the data layer,
+    # where the per-user profile had no ability to override it. They are
+    # now kept as three independent columns; Module 1's infer_weights()
+    # and Module 2's optimizer decide their relative importance per user
+    # instead of a fixed constant deciding it for everyone.
+    df["reliability_penalty"] = (100 - df["on_time_performance"].fillna(80)).round(3)
 
-    # min-max normalize the three optimizer axes to [0, 1] once here, so
+    # min-max normalize every optimizer axis to [0, 1] once here, so
     # Module 2 never has to re-derive scale-sensitive constants per query
-    for col in ["price", "duration_minutes", "inconvenience_score"]:
+    for col in ["price", "duration_minutes", "stops", "layover_hours", "reliability_penalty"]:
         cmin, cmax = df[col].min(), df[col].max()
         df[f"{col}_norm"] = ((df[col] - cmin) / (cmax - cmin)).round(4) if cmax > cmin else 0.0
 
@@ -216,6 +218,16 @@ REDEYE_NEGATIVE = ["redeye", "red-eye", "melt down at night", "kill my mornings"
 FAMILY_KEYWORDS = ["kid", "kids", "stroller", "family"]
 LOYALTY_KEYWORDS = ["loyalty", "status", "alliance", "aadvantage", "krisflyer", "skymiles"]
 
+# Layover-duration stance is its own axis, separate from "do I mind having
+# a connection at all" (DIRECT_POSITIVE/NEGATIVE above). Three distinct
+# patterns actually show up in this dataset's raw_history:
+LAYOVER_AVERSE = ["pay to skip", "skip a long layover", "skip a", "avoid a long layover"]
+LAYOVER_TOLERANT = ["overnight layover", "even overnight"]
+# this last one is the interesting case: these users are stressed by
+# SHORT layovers (fear of missing the connection), i.e. they want a
+# buffer, not a minimum -- the opposite of "less layover time is better."
+LAYOVER_WANTS_BUFFER = ["short layovers stress", "missing connections", "scared of missing"]
+
 
 def load_users(path: Path) -> pd.DataFrame:
     return pd.read_csv(path)
@@ -280,6 +292,13 @@ def mine_fragment(fragment: str, airline_codes: list[str]) -> dict:
     if any(k in text for k in DIRECT_NEGATIVE):
         signals["stance_directness"] = "connections_ok"
 
+    if any(k in text for k in LAYOVER_AVERSE):
+        signals["stance_layover"] = "averse_to_long"
+    if any(k in text for k in LAYOVER_TOLERANT):
+        signals["stance_layover"] = "tolerant"
+    if any(k in text for k in LAYOVER_WANTS_BUFFER):
+        signals["stance_layover"] = "wants_buffer"
+
     if any(k in text for k in REDEYE_NEGATIVE):
         signals["avoids_redeye"] = True
     if any(k in text for k in FAMILY_KEYWORDS):
@@ -290,16 +309,80 @@ def mine_fragment(fragment: str, airline_codes: list[str]) -> dict:
     return signals
 
 
+def split_convenience_pool(convenience_pool: float, fragment_signals: list[dict]) -> tuple[float, float, float]:
+    """Distribute the total convenience-preference mass across three
+    independent axes: number of connections (stops), layover duration,
+    and on-time reliability.
+
+    Default split (55/35/10) is a reasoned prior, not a data-fit: stop
+    count is what "direct preference" literally measures and what shows
+    up most in this dataset's raw_history; layover duration is a real
+    but secondary concern; reliability/delays are essentially never
+    mentioned in this dataset's free text (0/50 users), so it defaults
+    to a small, non-zero floor rather than 0 -- some weight on
+    reliability is still defensible even with no direct evidence for it.
+
+    Evidence can shift the *split*, not the total pool -- someone who's
+    revealed high tolerance for long layovers might still hate having
+    any connection at all; those are genuinely separate preferences.
+    """
+    stops_share, layover_share, reliability_share = 0.55, 0.35, 0.10
+
+    stances_layover = [s.get("stance_layover") for s in fragment_signals if "stance_layover" in s]
+    has_elasticity = any("elasticity_usd_per_hour" in s for s in fragment_signals)
+
+    if "averse_to_long" in stances_layover:
+        # "i'll pay to skip a 10hr layover" -- layover duration specifically
+        # matters more to this user than the default split assumes
+        shift = stops_share * 0.3
+        stops_share -= shift
+        layover_share += shift
+
+    if "tolerant" in stances_layover or has_elasticity:
+        # "2 stops fine, even overnight layovers" / revealed $/hr trade-off
+        # -- this user has shown they don't mind long layovers; free up
+        # some of that share for the axis they do still seem to care about
+        shift = layover_share * 0.4
+        layover_share -= shift
+        stops_share += shift
+
+    if "wants_buffer" in stances_layover:
+        # "scared of missing connections, short layovers stress me" -- this
+        # preference is non-monotonic (a *very short* layover is bad, not a
+        # long one), which this pipeline's linear "less layover = better"
+        # scoring cannot represent correctly. Rather than silently score
+        # these users wrong, we zero out the layover-duration axis for them
+        # and shift its share to reliability, since an unreliable connecting
+        # flight is the actual mechanism behind "missing the connection" --
+        # the closest available proxy to their real concern. A correct fix
+        # (a U-shaped penalty around an ideal buffer, or a hard minimum
+        # connection-time constraint) is flagged as future work, not built
+        # here -- see README.
+        reliability_share += layover_share
+        layover_share = 0.0
+
+    total = stops_share + layover_share + reliability_share
+    return (
+        convenience_pool * stops_share / total,
+        convenience_pool * layover_share / total,
+        convenience_pool * reliability_share / total,
+    )
+
+
 def infer_weights(row: pd.Series, fragment_signals: list[dict]) -> dict:
     """Fuse structured columns (treated as a prior) with mined raw-history
     stances (treated as evidence that can nudge, not override, the prior)
-    into a 3-axis multi-objective weight vector for the Module 2 optimizer.
+    into a 5-axis multi-objective weight vector for the Module 2 optimizer:
+    cost, time, stops, layover duration, and on-time reliability. The last
+    three used to be pre-blended into one hand-tuned "inconvenience_score"
+    formula with fixed global coefficients -- they're independent,
+    per-user-weighted axes now.
     """
     price_sensitivity_map = {"none": 0.05, "low": 0.2, "medium": 0.5, "high": 0.85}
     direct_pref_map = {"none": 0.1, "moderate": 0.5, "strong": 0.9}
 
     cost_weight = price_sensitivity_map.get(str(row.get("price_sensitivity", "medium")).lower(), 0.5)
-    convenience_weight = direct_pref_map.get(str(row.get("direct_preference", "moderate")).lower(), 0.5)
+    convenience_pool = direct_pref_map.get(str(row.get("direct_preference", "moderate")).lower(), 0.5)
 
     stances_cost = [s.get("stance_cost") for s in fragment_signals if "stance_cost" in s]
     if "price_sensitive" in stances_cost:
@@ -309,22 +392,30 @@ def infer_weights(row: pd.Series, fragment_signals: list[dict]) -> dict:
 
     stances_dir = [s.get("stance_directness") for s in fragment_signals if "stance_directness" in s]
     if "prefers_direct" in stances_dir:
-        convenience_weight = min(1.0, convenience_weight + 0.1)
+        convenience_pool = min(1.0, convenience_pool + 0.1)
     if "connections_ok" in stances_dir:
-        convenience_weight = max(0.0, convenience_weight - 0.1)
+        convenience_pool = max(0.0, convenience_pool - 0.1)
 
-    time_weight = max(0.05, round(1.0 - (cost_weight + convenience_weight) / 2, 3))
+    time_weight = max(0.05, round(1.0 - (cost_weight + convenience_pool) / 2, 3))
 
-    total = cost_weight + convenience_weight + time_weight
+    stops_weight, layover_weight, reliability_weight = split_convenience_pool(convenience_pool, fragment_signals)
+
+    total = cost_weight + time_weight + stops_weight + layover_weight + reliability_weight
     weights = {
         "cost_weight": round(cost_weight / total, 3),
-        "convenience_weight": round(convenience_weight / total, 3),
         "time_weight": round(time_weight / total, 3),
+        "stops_weight": round(stops_weight / total, 3),
+        "layover_weight": round(layover_weight / total, 3),
+        "reliability_weight": round(reliability_weight / total, 3),
     }
 
     elasticities = [s["elasticity_usd_per_hour"] for s in fragment_signals if "elasticity_usd_per_hour" in s]
     if elasticities:
         weights["revealed_usd_per_layover_hour"] = round(float(np.mean(elasticities)), 2)
+
+    stances_layover = [s.get("stance_layover") for s in fragment_signals if "stance_layover" in s]
+    if "wants_buffer" in stances_layover:
+        weights["non_monotonic_layover_preference"] = True  # see split_convenience_pool docstring
 
     return weights
 

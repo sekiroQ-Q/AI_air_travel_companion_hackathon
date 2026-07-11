@@ -167,12 +167,21 @@ def explain_template(query: str, top_pick: dict, alternatives: list[dict], evide
         lines.append(f"- Why this fits you: {quoted}.")
 
     w = profile.get("weights", {})
+    convenience_total = w.get("stops_weight", 0) + w.get("layover_weight", 0) + w.get("reliability_weight", 0)
     lines.append(
         f"- Inferred priorities from your profile: cost {w.get('cost_weight', 0):.0%}, "
-        f"time {w.get('time_weight', 0):.0%}, convenience {w.get('convenience_weight', 0):.0%}."
+        f"time {w.get('time_weight', 0):.0%}, convenience {convenience_total:.0%} "
+        f"(stops {w.get('stops_weight', 0):.0%}, layover length {w.get('layover_weight', 0):.0%}, "
+        f"reliability {w.get('reliability_weight', 0):.0%})."
     )
     if "revealed_usd_per_layover_hour" in w:
         lines.append(f"- Revealed price elasticity: ~${w['revealed_usd_per_layover_hour']:.0f} per hour of layover tolerated.")
+    if w.get("non_monotonic_layover_preference"):
+        lines.append(
+            "- Note: your history suggests you actually prefer a longer buffer between "
+            "connections (fear of missing one), not a shorter layover -- we've weighted "
+            "reliability higher for you instead of penalizing layover length directly."
+        )
 
     if top_pick.get("stops", 0) and profile.get("max_layover_minutes") is not None:
         lines.append(f"- Layover within your {profile['max_layover_minutes']}-minute tolerance.")
