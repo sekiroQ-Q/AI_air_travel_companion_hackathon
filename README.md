@@ -115,11 +115,21 @@ The technical centerpiece:
 - Multi-city (>= 2 destinations): Module 4's VRPTW + beam search.
 - Evidence-cited natural language explanations with trade-off articulation.
 
-## Offline Fallback Behavior
+## Current Limitation
 
-Built for demo-day resilience — **no API outage can crash the demo**:
-- **Embeddings**: Tries `sentence-transformers/all-MiniLM-L6-v2` first. Falls back to local TF-IDF + SVD if HuggingFace is unreachable.
-- **Query Parsing & Explanation**: Deterministic rule-based parser + template explainer as default. LLM can be wired in via the `llm` parameter.
+- Zero-flight route pairs are penalized (`INFEASIBLE_PENALTY`), not removed — infeasibility only surfaces at beam search, not at VRPTW solve.
+- `DEFAULT_STAY_HOURS` (24) and `min_connection_minutes` (90) are fixed constants, not learned or per-user.
+- Route+date coverage is sparse — most routes have flights on only 1–3 logged dates.
+- `app.py` intermittently segfaulted under Streamlit's `AppTest` harness (not reproduced in plain Python); rehearse the live demo in a real browser.
+- FAISS's `IVF+HNSW` path never runs at the current 50-profile scale.
+- CUDA/FP16 path only verified on CPU fallback in this review environment.
+
+## Future Work
+
+- Deep RL agent for sequential leg booking under price uncertainty, using existing `route_price_mean`/`std` as reward signal.
+- GNN over the `TemporalEdge` graph for dynamic, real-time edge weights instead of static historical aggregates.
+- Per-traveler / per-airport time-window parameters, replacing the fixed `DEFAULT_STAY_HOURS` / `min_connection_minutes`.
+- Pre-flight reachability check before the VRPTW solve.
 
 ## Tech Stack
 
