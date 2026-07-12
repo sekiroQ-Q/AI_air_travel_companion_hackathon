@@ -85,7 +85,7 @@ All heavy computation (VRPTW solving, beam search, PyTorch scoring) is gated beh
 | **Pareto Trade-Off Analysis** | Interactive scatter plot proving the AI pick sits on the cost-time Pareto frontier. Leg selector for multi-city |
 | **Engineering & Graph Logs** | Raw JSON of user profile, 5-axis weights, FAISS evidence, OR-Tools integer distance matrix, compute config (CUDA/dtype/numpy) |
 
-## Core Architecture & SOTA Upgrades
+## Core Architecture
 
 ### 1. Vectorized Data Engineering (Module 1)
 - Replaced `df.iterrows()` with **Vectorized Batch Processing** (`Series.apply` + pre-compiled regex).
