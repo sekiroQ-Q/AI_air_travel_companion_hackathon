@@ -1,6 +1,6 @@
 """
 Module 4 - Multi-City Route Optimization (VRPTW + Stochastic Beam Search)
-==========================================================================
+
 AI Air Travel Companion (hackathon prototype)
 
 SOTA upgrade over baseline TSP:
@@ -75,9 +75,7 @@ COST_SCALE = 100_000   # blended [0,1] cost -> integer scale OR-Tools needs
 DEFAULT_STAY_HOURS = 24  # minimum hours at each destination city
 
 
-# =========================================================================== #
 # 1. DATA STRUCTURES
-# =========================================================================== #
 @dataclass
 class TemporalEdge:
     """A concrete flyable connection for one (origin, dest, date) triple.
@@ -120,9 +118,7 @@ class ScoredItinerary:
     is_feasible: bool
 
 
-# =========================================================================== #
 # 2. MULTI-CITY ROUTER (VRPTW + Stochastic Beam Search)
-# =========================================================================== #
 class MultiCityRouter:
     """VRPTW-based multi-city route optimizer with stochastic beam search.
 
@@ -158,9 +154,7 @@ class MultiCityRouter:
         self._route_agg: pd.DataFrame = pd.DataFrame()
         self._build_temporal_graph()
 
-    # ------------------------------------------------------------------ #
     # temporal graph construction (vectorized)
-    # ------------------------------------------------------------------ #
     def _build_temporal_graph(self):
         """Build temporal edge set — VECTORIZED via groupby, no Python loops
         over individual flights. O(n) in flight count.
@@ -234,9 +228,9 @@ class MultiCityRouter:
         print(f"[MultiCityRouter] built temporal graph: {n_routes} routes, "
               f"{n_temporal} date-specific edges from {len(self.flights_df)} flights")
 
-    # ------------------------------------------------------------------ #
+
     # distance matrix (vectorized 5-axis)
-    # ------------------------------------------------------------------ #
+    
     def compute_distance_matrix(
         self,
         selected_cities: list[str],
@@ -309,9 +303,9 @@ class MultiCityRouter:
         np.fill_diagonal(matrix, 0)
         return matrix.tolist()
 
-    # ------------------------------------------------------------------ #
+
     # VRPTW solver
-    # ------------------------------------------------------------------ #
+    
     def solve_route(
         self,
         home_airport: str,
@@ -444,9 +438,9 @@ class MultiCityRouter:
 
         return order
 
-    # ------------------------------------------------------------------ #
+
     # Stochastic Beam Search (novel component)
-    # ------------------------------------------------------------------ #
+
     def beam_search_itineraries(
         self,
         optimal_route: list[str],
@@ -644,9 +638,9 @@ class MultiCityRouter:
         itineraries.sort(key=lambda x: -x.utility_score)
         return itineraries
 
-    # ------------------------------------------------------------------ #
+
     # backward-compatible concrete flight resolution (greedy)
-    # ------------------------------------------------------------------ #
+
     def get_itinerary_flights(
         self,
         optimal_route: list[str],
@@ -718,9 +712,8 @@ class MultiCityRouter:
         }
 
 
-# =========================================================================== #
 # main / smoke test
-# =========================================================================== #
+
 if __name__ == "__main__":
     print("=" * 70)
     print("DEMO 1: dummy data (self-contained, no external files needed)")

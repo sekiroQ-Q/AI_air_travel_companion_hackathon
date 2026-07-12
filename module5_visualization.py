@@ -1,6 +1,6 @@
 """
 Module 5 - Visualization Engine (Streamlit Ready)
-=================================================
+
 AI Air Travel Companion (hackathon prototype)
 
 Generates highly interactive, visually stunning Plotly charts for the
@@ -295,10 +295,7 @@ def plot_pareto_tradeoff(all_flights_df: pd.DataFrame, selected_flight_id: str) 
 
     return fig
 
-
-# =========================================================================== #
 # Demo / Smoke Test — saves interactive HTML to output/
-# =========================================================================== #
 if __name__ == "__main__":
     from pathlib import Path
 

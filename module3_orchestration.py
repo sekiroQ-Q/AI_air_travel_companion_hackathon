@@ -1,6 +1,6 @@
 """
 Module 3 - End-to-End Orchestration Pipeline (VRPTW-Integrated)
-================================================================
+
 AI Air Travel Companion (hackathon prototype)
 
 Ties together: NL query -> preference retrieval (FAISS, Module 2) ->
@@ -59,9 +59,9 @@ FLIGHTS_CLEAN_PATH = OUTPUT_DIR / "flights_clean.csv"
 PROFILES_PATH = OUTPUT_DIR / "user_profiles.json"
 
 
-# =========================================================================== #
+
 # 1. QUERY PARSING
-# =========================================================================== #
+
 FLEX_KEYWORDS = {"flexible": 14, "whenever": 21, "no rush": 14, "anytime": 21}
 DIRECT_SIGNALS = ["hate layover", "hate connections", "no layover", "direct only", "nonstop", "avoid layover"]
 BUDGET_SIGNALS = ["budget", "cheap", "cheapest", "affordable", "save money"]
@@ -139,9 +139,9 @@ def parse_query_llm(query: str, llm) -> dict:
     return chain.invoke({"query": query})
 
 
-# =========================================================================== #
+
 # 2. EXPLANATION GENERATION
-# =========================================================================== #
+
 def explain_template(
     query: str,
     top_pick: dict,
@@ -299,9 +299,9 @@ def explain_llm(context: dict, llm) -> str:
     return chain.invoke({k: str(v) for k, v in context.items()})
 
 
-# =========================================================================== #
+
 # 3. ORCHESTRATOR
-# =========================================================================== #
+
 class TravelCompanionPipeline:
     """End-to-end pipeline: query -> parse -> retrieve -> optimize -> explain.
 
@@ -470,9 +470,9 @@ class TravelCompanionPipeline:
             }
 
 
-# =========================================================================== #
+
 # main / smoke test
-# =========================================================================== #
+
 def main():
     print("Loading Module 1/2 outputs...")
     df_flights = pd.read_csv(FLIGHTS_CLEAN_PATH, parse_dates=["departure_utc", "arrival_utc"])

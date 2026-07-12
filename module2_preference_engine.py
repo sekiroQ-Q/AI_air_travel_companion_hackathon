@@ -1,6 +1,5 @@
 """
 Module 2 - Core AI Model: Preference Extraction & Optimization
-================================================================
 AI Air Travel Companion (hackathon prototype)
 
 Performance-optimized version with:
@@ -57,9 +56,8 @@ FLIGHTS_CLEAN_PATH = OUTPUT_DIR / "flights_clean.csv"
 PROFILES_PATH = OUTPUT_DIR / "user_profiles.json"
 
 
-# =========================================================================== #
 # 0. HARDWARE-ADAPTIVE COMPUTE CONFIGURATION
-# =========================================================================== #
+
 # Detect GPU once at import time — all downstream code references these
 # module-level constants. No scattered torch.cuda.is_available() calls.
 _DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -84,9 +82,7 @@ def _cleanup_vram():
 print(f"[module2] compute config: device={_DEVICE}, dtype={_DTYPE}")
 
 
-# =========================================================================== #
 # 1. TRANSFORMER-BASED PREFERENCE EMBEDDER (with offline fallback)
-# =========================================================================== #
 class PreferenceEmbedder:
     """Wraps a small HuggingFace sentence-transformer for embedding
     preference summaries. Swap EMBED_MODEL_NAME for any
@@ -148,9 +144,7 @@ class PreferenceEmbedder:
         return emb / norms
 
 
-# =========================================================================== #
 # 2. ADAPTIVE FAISS VECTOR STORE
-# =========================================================================== #
 def _build_faiss_index(embeddings: np.ndarray) -> faiss.Index:
     """Adaptive FAISS indexing strategy:
 
@@ -257,9 +251,8 @@ class UserPreferenceStore:
         return [fragments[i] for i in top_idx]
 
 
-# =========================================================================== #
 # 3. PYTORCH MULTI-OBJECTIVE UTILITY FUNCTION (GPU-optimized)
-# =========================================================================== #
+
 class MultiObjectiveUtility(nn.Module):
     """A small, differentiable multi-objective utility function.
 
@@ -297,9 +290,8 @@ class MultiObjectiveUtility(nn.Module):
         return -(features * w).sum(dim=1)
 
 
-# =========================================================================== #
 # 4. VECTORIZED NORMALIZATION AND PARETO FRONTIER
-# =========================================================================== #
+
 def normalize_candidates(
     df_candidates: pd.DataFrame,
     cols=MultiObjectiveUtility.RAW_COLS,
@@ -395,9 +387,9 @@ def pareto_mask(
         return ~dominated
 
 
-# =========================================================================== #
+
 # 5. CONSTRAINT FILTERING
-# =========================================================================== #
+
 def filter_candidates(
     df_flights: pd.DataFrame,
     origin: str,
@@ -424,9 +416,7 @@ def filter_candidates(
     return df.reset_index(drop=True)
 
 
-# =========================================================================== #
 # 6. SCORE + RANK (the "optimization engine")
-# =========================================================================== #
 def score_and_rank(df_candidates: pd.DataFrame, profile: dict, top_k: int = 3) -> dict:
     """Scores hard-constraint-filtered candidates with the PyTorch utility
     function and returns the top-k plus the full Pareto frontier, which
@@ -484,9 +474,8 @@ def score_and_rank(df_candidates: pd.DataFrame, profile: dict, top_k: int = 3) -
     }
 
 
-# =========================================================================== #
+
 # main / smoke test
-# =========================================================================== #
 def main():
     print("Loading Module 1 outputs...")
     df_flights = pd.read_csv(FLIGHTS_CLEAN_PATH, parse_dates=["departure_utc", "arrival_utc"])

@@ -1,6 +1,6 @@
 """
 Module 1 - EDA & Data Cleaning (Performance-Optimized)
-=======================================================
+
 AI Air Travel Companion (hackathon prototype)
 
 Responsibilities:
@@ -53,9 +53,9 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-# --------------------------------------------------------------------------- #
+
 # Config
-# --------------------------------------------------------------------------- #
+
 DATA_DIR = Path("data")
 OUTPUT_DIR = Path("output")
 PLOTS_DIR = OUTPUT_DIR / "eda_plots"
@@ -66,9 +66,8 @@ USERS_PATH = DATA_DIR / "user_data.csv"
 sns.set_theme(style="whitegrid")
 
 
-# =========================================================================== #
 # 1. FLIGHT DATA CLEANING
-# =========================================================================== #
+
 def load_flights(path: Path) -> pd.DataFrame:
     return pd.read_csv(path)
 
@@ -84,7 +83,7 @@ def clean_flights(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
 
-    # --- missing values --------------------------------------------------
+    # --- missing values 
     # layover_airports / layover_minutes are legitimately empty for direct
     # flights (stops == 0). That's not missing data -- make it explicit
     # rather than dropping or imputing it.
@@ -98,7 +97,7 @@ def clean_flights(df: pd.DataFrame) -> pd.DataFrame:
     if before - len(df):
         print(f"[clean_flights] dropped {before - len(df)} rows missing critical fields")
 
-    # --- dtype normalization ----------------------------------------------
+    # --- dtype normalization
     df["departure_utc"] = pd.to_datetime(df["departure_utc"], utc=True, errors="coerce")
     df["arrival_utc"] = pd.to_datetime(df["arrival_utc"], utc=True, errors="coerce")
     df["price"] = pd.to_numeric(df["price"], errors="coerce")
@@ -127,7 +126,7 @@ def clean_flights(df: pd.DataFrame) -> pd.DataFrame:
             print(f"[clean_flights] WARNING: {len(non_usd)} rows in non-USD currency "
                   f"were left unconverted -- add an FX step if this matters for your data.")
 
-    # --- feature engineering ------------------------------------------------
+    # --- feature engineering 
     df["duration_hours"] = (df["duration_minutes"] / 60).round(2)
     df["is_direct"] = df["stops"] == 0
     df["price_per_hour"] = (df["price"] / df["duration_hours"].replace(0, np.nan)).round(2)
@@ -231,9 +230,8 @@ def plot_flight_eda(df: pd.DataFrame, plots_dir: Path) -> None:
     print(f"[plot_flight_eda] saved 5 plots to {plots_dir}/")
 
 
-# =========================================================================== #
 # 2. USER DATA CLEANING + RAW-HISTORY FEATURE MINING
-# =========================================================================== #
+
 # Pre-compiled regex patterns — compiled ONCE at module load, reused for
 # every fragment. O(1) compile cost amortized over all users.
 RE_MONEY = re.compile(r"\$\s?(\d+(?:\.\d+)?)")
@@ -546,9 +544,8 @@ def build_user_profiles(df_users: pd.DataFrame, airline_lookup: dict) -> list[di
     return profiles
 
 
-# =========================================================================== #
 # main
-# =========================================================================== #
+
 def main():
     OUTPUT_DIR.mkdir(exist_ok=True)
 
